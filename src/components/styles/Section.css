@@ -1,57 +1,76 @@
 .ui-section {
     display: flex;
     flex-direction: column;
-    margin: 15px 0;
+    padding: var(--padding-content) 0;
 }
 
-.ui-section .headline.with-link {
-    display: grid;
-    grid-template-columns: 1fr max-content;
+.ui-section .headline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: var(--padding-content);
 }
 
-.ui-section .headline h2,
-.ui-section .headline.with-link a,
-.ui-section .headline.with-link a:active,
-.ui-section .headline.with-link a:visited,
-.ui-section .headline.with-link a:link,
-.ui-section .headline.with-link a:focus {
-    font-size: 1rem;
-    font-weight: 900;
-    opacity: .25;
-    color: black;
-    text-decoration: none;
+.ui-section .headline .ui-row {
+    display: flex;
+    flex-grow: 1;
+}
+
+.ui-section > .headline > .ui-row {
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ui-section .headline .ui-row .ui-search {
+    flex-grow: 100;
+}
+
+.ui-section .headline .ui-row .ui-slider {
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.ui-section .headline .ui-row .ui-slider .slide {
+    flex-grow: 1;
+    width: auto;
+}
+
+.ui-section .headline .ui-row .ui-slider .ui-message {
+    padding-block-start: 0;
+    padding-block-end: 0;
+    border: none;
 }
 
 .ui-section .headline h2 {
-    display: flex;
-    align-items: center;
-    margin: 0 0 15px 0;
+    flex-grow: 100;
+    font-size: var(--fz-headline);
+    margin: 0;
     padding: 0;
+    line-height: 1.75;
 }
 
-.ui-section .headline.with-link a {
-    line-height: 1.55;
-    transition: all .15s ease;
+.ui-section .headline h2 .title {
+    color: var(--color-text);
 }
 
-.ui-section .headline.with-link a:hover {
-    color: var(--color__accent-hover-link);
-    opacity: 1;
+.ui-section .headline h2 .subtitle {
+    color: var(--color-graylite);
+    font-weight: 400;
+    margin-inline-start: 5px;
 }
 
-.ui-section.center .headline h2 {
-    justify-content: center;
+.ui-section > .content {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: var(--padding-content);
 }
 
-.ui-section.end .headline h2 {
-    justify-content: flex-end;
+.ui-section > .content > .ui-entry {
+    flex-grow: 1;
+    flex-basis: 320px;
 }
 
-.ui-section .headline h2 svg {
-    margin-right: 15px;
-}
-
-.ui-section.center .headline.with-link h2,
-.ui-section.end .headline.with-link h2 {
-    justify-content: flex-start;
+.ui-section .ui-message {
+    padding: 25px;
+    flex-grow: 1;
 }

@@ -2,6 +2,7 @@
     /* Main */
     --br-main: 8px;
     --border-main: 1px solid #EDEFF4;
+    --height-main: 40px;
 
     --font-weight-section-title: bold;
     --padding-content: 15px;
@@ -25,7 +26,10 @@
     --color-button-background-disabled: #e4e8ec;
     --color-button-border-disabled: #c9d2d6;
 
-    /* z-index */
+    /* Font Size */
+    --fz-headline: 22px;
+
+    /* Z Index */
     --z-ten: 10;
     --z-nine: 9;
     --z-primary: 1;

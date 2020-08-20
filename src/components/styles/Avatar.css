@@ -1,8 +1,8 @@
 .ui-avatar {
-    border-radius: 10px;
+    border-radius: var(--br-main);
     overflow: hidden;
-    width: 32px;
-    height: 32px;
+    width: var(--height-main);
+    height: var(--height-main);
     justify-self: center;
 }
 

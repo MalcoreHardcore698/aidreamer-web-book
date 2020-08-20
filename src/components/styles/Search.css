@@ -1,11 +1,11 @@
 .ui-search {
-    height: 30px;
+    height: var(--height-main);
     outline: none;
     color: var(--color-graylite);
     border: 1px solid var(--color-graylite);
     border-radius: var(--br-main);
     background: transparent;
-    padding: 0 10px;
+    padding: 0 15px;
     cursor: text;
     transition: all .15s ease;
 }

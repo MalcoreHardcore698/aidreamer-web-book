@@ -12,7 +12,7 @@
 
 .ui-entry .user-bar {
     display: grid;
-    grid-template-columns: 30px 1fr;
+    grid-template-columns: var(--height-main) 1fr;
     grid-gap: 10px;
     padding: var(--padding-content);
     border-block-end: var(--border-main);
@@ -20,14 +20,15 @@
 
 .ui-entry .user-bar .avatar {
     width: 100%;
-    height: 30px;
+    height: var(--height-main);
     object-fit: cover;
     border-radius: var(--br-main);
 }
 
 .ui-entry .user-bar .content {
-    line-height: 1.65;
+    align-self: center;
     font-weight: bold;
+    line-height: 1;
 }
 
 .ui-entry .user-bar .content .name {
@@ -67,7 +68,7 @@
     font-weight: bold;
     font-size: 18px;
     color: var(--color-text);
-    margin: 5px 0;
+    margin: 10px 0 5px 0;
 }
 
 .ui-entry .content-wrapper .content .paragraph {
@@ -81,8 +82,36 @@
     display: flex;
 }
 
+.ui-entry .content-wrapper .manage button {
+    background: white;
+}
+
 .ui-entry .content-wrapper .manage button:last-child {
     margin-inline-start: 5px;
+}
+
+.ui-entry.editable .title,
+.ui-entry .title.separeted {
+    position: relative;
+    padding-inline-end: 120px;
+}
+
+.ui-entry .title.separeted span:first-child::after {
+    content: '';
+    position: relative;
+    top: -2px;
+    display: inline-flex;
+    width: 6px;
+    height: 6px;
+    background: var(--color-graylite);
+    border-radius: 50%;
+    margin: 0 8px;
+}
+
+.ui-entry .title.separeted span:last-child {
+    color: var(--color-accent);
+    text-transform: capitalize;
+    font-size: .875rem;
 }
 
 .ui-entry .status-bar {
@@ -100,6 +129,7 @@
 
 .ui-entry .status-bar p:nth-child(2n) {
     justify-self: end;
+    text-align: right;
 }
 
 .ui-entry .status-bar p .lite {

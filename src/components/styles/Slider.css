@@ -1,7 +1,7 @@
 .ui-slider {
     display: flex;
     width: max-content;
-    height: 40px;
+    height: var(--height-main);
     color: var(--color-graylite);
     border: 1px solid var(--color-graylite);
     border-radius: var(--br-main);
@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 40px;
+    min-width: var(--height-main);
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;

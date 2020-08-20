@@ -46,7 +46,7 @@ export default (props) => {
         classes, handler
     }
 
-    if (state === 'active')
+    if (state !== 'inactive')
         return <Ripple {...options} />
 
     return <Button {...options} />

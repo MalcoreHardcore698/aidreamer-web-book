@@ -9,6 +9,7 @@ import React from 'react'
 import Message from './Message'
 import Search from './Search'
 import Slider from './Slider'
+import Row from './Row'
 import '../styles/Section.css'
 
 const Manage = ({ filter, targets }) => {
@@ -21,10 +22,13 @@ const Manage = ({ filter, targets }) => {
 }
 
 export default (props) => {
+    const Children = props.children
+
     const {
         name='default',
-        headline='Section Name',
-        manage, filter=false,
+        title='Events',
+        subtitle='124',
+        manage=true, filter=false,
         targets=[]
     } = props.options || {}
 
@@ -36,13 +40,18 @@ export default (props) => {
     return (
         <section className={classes.join(' ')}>
             <div className="headline">
-                <h2>{headline}</h2>
+                <h2>
+                    <span className="title">{title}</span>
+                    <span className="subtitle">{subtitle}</span>
+                </h2>
                 {(manage) && <Manage
                     filter={filter}
                     targets={targets}
                 />}
             </div>
-            {(props.children && props.children()) || <Message type="error" />}
+            <div className="content">
+                {Children || <Message text="No Content" />}
+            </div>
         </section>
     )
 }

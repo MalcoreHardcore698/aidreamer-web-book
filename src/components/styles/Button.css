@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
+    height: var(--height-main);
     outline: none;
     border: 1px solid var(--color-graylite);
     border-radius: var(--br-main);
@@ -15,7 +15,7 @@
 }
 
 .ui-button.icon {
-    width: 30px;
+    width: var(--height-main);
 }
 
 .ui-button:not(.disabled):hover {
@@ -32,10 +32,10 @@
     z-index: var(--z-ten);
 }
 
-.ui-button.active,
+.ui-button:not(.icon).active,
 .ui-button.flat {
-    padding: 0 15px;
-    font-weight: 500;
+    padding: 0 25px;
+    font-weight: 600;
 }
 
 .ui-button.active::before {

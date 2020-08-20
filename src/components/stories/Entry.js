@@ -4,6 +4,7 @@ import '../styles/Entry.css'
 
 import ImageAvatar from '../../assets/images/avatar.png'
 import ImageArticle from '../../assets/images/article.png'
+import ImageTourPoster from '../../assets/images/poster.png'
 
 export default () => {
     return (
@@ -52,6 +53,41 @@ export default () => {
                 <h2 className="title">Need a teammate</h2>
                 <p className="paragraph">Some text for opinion</p>
             </Entry>
+
+            <p className="book-paragraph">Tour Entry</p>
+            <Entry options={{
+                capacious: false,
+                manageOffset: true,
+                statusBar: [
+                    { lite: 'Participants', dark: 10 },
+                    { lite: 'Date', dark: '21 December - 25 December' },
+                    { lite: 'Prize Pool', dark: '1,000,000 USD' },
+                    { lite: 'Location', dark: 'London' }
+                ]
+            }}>
+                <img className="image" src={ImageTourPoster} alt="Tour" />
+                <h2 className="title separeted">
+                    <span>Ignition Series 2020</span><span>Offcial</span>
+                </h2>
+            </Entry>
+
+            <p className="book-paragraph">Editable Tour Entry</p>
+            <Entry options={{
+                editable: true,
+                capacious: false,
+                manageOffset: true,
+                statusBar: [
+                    { lite: 'Participants', dark: 10 },
+                    { lite: 'Date', dark: '21 December - 25 December' },
+                    { lite: 'Prize Pool', dark: '1,000,000 USD' },
+                    { lite: 'Location', dark: 'London' }
+                ]
+            }}>
+                <img className="image" src={ImageTourPoster} alt="Tour" />
+                <h2 className="title separeted">
+                    <span>Ignition Series 2020</span><span>Offcial</span>
+                </h2>
+            </Entry> 
         </React.Fragment>
     )
 }
