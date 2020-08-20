@@ -1,3 +1,10 @@
+/*
+ * COMPONENT: Checkbox
+ * 
+ * MISSION: ...
+ *
+**/
+
 import React from 'react'
 
 export default () => {

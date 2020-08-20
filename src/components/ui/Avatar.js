@@ -1,3 +1,10 @@
+/*
+ * COMPONENT: Avatar
+ * 
+ * MISSION: Rendering Image with given properties
+ *
+**/
+
 import React from 'react'
 import Skeleton from './Skeleton'
 import '../styles/Avatar.css'

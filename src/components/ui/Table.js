@@ -1,7 +1,25 @@
-import React from 'react'
+/*
+ * COMPONENT: Table
+ * 
+ * MISSION: ...
+ *
+**/
 
-export default () => {
+import React from 'react'
+import '../styles/Table.css'
+
+export default ({ options }) => {
+    const {
+
+    } = options
+
+    const classes = [
+        'ui-table'
+    ]
+
     return (
-        <p>Table</p>
+        <div className={classes.join(' ')}>
+            {/* Quiet... */}
+        </div>
     )
 }

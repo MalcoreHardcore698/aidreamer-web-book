@@ -1,3 +1,10 @@
+/*
+ * COMPONENT: Slider
+ * 
+ * MISSION: ...
+ *
+**/
+
 import React, { useState } from 'react'
 import '../styles/Slider.css'
 

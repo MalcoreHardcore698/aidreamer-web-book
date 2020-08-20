@@ -1,7 +1,25 @@
-import React from 'react'
+/*
+ * COMPONENT: Sidebar
+ * 
+ * MISSION: ...
+ *
+**/
 
-export default () => {
+import React from 'react'
+import '../styles/Sidebar.css'
+
+export default ({ options }) => {
+    const {
+
+    } = options
+
+    const classes = [
+        'ui-sidebar'
+    ]
+
     return (
-        <p>Sidebar</p>
+        <div className={classes.join(' ')}>
+            {/* Quiet... */}
+        </div>
     )
 }

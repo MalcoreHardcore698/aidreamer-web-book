@@ -1,3 +1,10 @@
+/*
+ * COMPONENT: Message
+ * 
+ * MISSION: ...
+ *
+**/
+
 import React from 'react'
 
 import '../styles/Message.css'

@@ -1,3 +1,10 @@
+/*
+ * COMPONENT: Grid
+ * 
+ * MISSION: ...
+ *
+**/
+
 import React from 'react'
 // eslint-disable-next-line
 import Konva from 'konva'

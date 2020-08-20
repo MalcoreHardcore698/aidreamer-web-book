@@ -1,3 +1,10 @@
+/*
+ * COMPONENT: Group
+ * 
+ * MISSION: ...
+ *
+**/
+
 import React from 'react'
 import Participant from './Participant'
 

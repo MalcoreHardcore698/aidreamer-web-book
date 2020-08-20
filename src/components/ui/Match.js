@@ -1,3 +1,10 @@
+/*
+ * COMPONENT: Match
+ * 
+ * MISSION: ...
+ *
+**/
+
 import React from 'react'
 import { Group, Rect, Line } from 'react-konva'
 import Participant from './Participant'

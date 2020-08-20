@@ -1,3 +1,10 @@
+/*
+ * COMPONENT: Graph
+ * 
+ * MISSION: ...
+ *
+**/
+
 import React from 'react'
 import Match from './Match'
 

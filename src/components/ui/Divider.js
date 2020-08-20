@@ -1,7 +1,21 @@
+/*
+ * COMPONENT: Entry
+ * 
+ * MISSION: Space between components
+ *
+**/
+
 import React from 'react'
 
-export default () => {
+export default ({ distance }) => {
+    const classes = [
+        'ui-divider'
+    ]
+
     return (
-        <p>Divider</p>
+        <div
+            className={classes.join(' ')}
+            style={{ height: distance }}
+        />
     )
 }

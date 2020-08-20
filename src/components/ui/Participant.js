@@ -1,3 +1,10 @@
+/*
+ * COMPONENT: Participant
+ * 
+ * MISSION: ...
+ *
+**/
+
 import React, { useState } from 'react'
 import { Group, Text, Rect } from 'react-konva'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

@@ -1,12 +1,31 @@
+/*
+ * COMPONENT: AsyncSection
+ * 
+ * MISSION: Fetching data and rendering in
+ * Section components
+ * 
+ * IMPORTANT: Must be installed Apollo packages
+ * More: https://www.apollographql.com/docs/react/
+ *
+**/
+
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSkull } from '@fortawesome/free-solid-svg-icons'
-import { NavLink } from 'react-router-dom'
+import Message from './Message'
+import Search from './Search'
+import Slider from './Slider'
 import Skeleton from './Skeleton'
 import Message from './Message'
-
 import '../styles/Section.css'
+
+const Manage = ({ filter, targets }) => {
+    return (
+        <Row>
+            <Search filter={filter} />
+            <Slider options={{ targets }} />
+        </Row>
+    )
+}
 
 const Query = ({ query, variables, component }) => {
     const { loading, error, data } = useQuery(query, { variables })
@@ -22,44 +41,34 @@ const Query = ({ query, variables, component }) => {
 export default (props) => {
     const {
         name='default',
-        icon=faSkull,
         headline='Section Name',
-        alignment,
         query=null,
         variables={},
-        link=null
+        manage, targets=[],
+        filter
     } = props.options || {}
 
     const classes = [
         'ui-section',
-        name, alignment
+        name
     ]
-
-    const data = 'Content'
-
-    const renderLink = () => {
-        if (!link) return null
-        return <a
-            href={link.path}
-            className={`link${link.classes.join(' ')}`}
-        >
-                {link.text}
-        </a>
-    }
-
-    if (query) return <Query
-        query={query}
-        variables={variables}
-        component={props.children}
-    />
 
     return (
         <section className={classes.join(' ')}>
-            <div className={`headline${(link) ? ' with-link' : ''}`}>
-                <h2><FontAwesomeIcon icon={icon} />{headline}</h2>
-                {renderLink()}
+            <div className="headline">
+                <h2>{headline}</h2>
+                {(manage) && <Manage
+                    filter={filter}
+                    targets={targets}
+                />}
             </div>
-            {props.children && props.children(data)}
+
+            {(!query) ? props.children && props.children()
+                : <Query
+                    query={query}
+                    variables={variables}
+                    component={props.children}
+                />}
         </section>
     )
 }

@@ -1,7 +1,21 @@
-import React from 'react'
+/*
+ * COMPONENT: Select
+ * 
+ * MISSION: ...
+ *
+**/
 
-export default () => {
+import React from 'react'
+import Select from 'react-select'
+
+export default ({ options }) => {
+    const classes = [
+        'ui-select'
+    ]
+
     return (
-        <p>Select</p>
+        <div className={classes.join(' ')}>
+            <Select {...options} />
+        </div>
     )
 }

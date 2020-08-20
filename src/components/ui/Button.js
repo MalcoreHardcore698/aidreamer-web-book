@@ -1,3 +1,10 @@
+/*
+ * COMPONENT: Button
+ * 
+ * MISSION: Rendering Image with given properties
+ *
+**/
+
 import React from 'react'
 import Ripples from 'react-ripples'
 import '../styles/Button.css'

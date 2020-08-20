@@ -1,7 +1,29 @@
-import React from 'react'
+/*
+ * COMPONENT: List
+ * 
+ * MISSION: ...
+ *
+**/
 
-export default () => {
+import React from 'react'
+import '../styles/List.css'
+
+export default ({ options }) => {
+    const {
+        type,
+        items
+    } = options
+
+    const classes = [
+        'ui-list',
+        type
+    ]
+
     return (
-        <p>List</p>
+        <ul className={classes.join(' ')}>
+            {items.map((item, key) =>
+                <li key={key} {...item.props}>{item.content}</li>    
+            )}
+        </ul>
     )
 }

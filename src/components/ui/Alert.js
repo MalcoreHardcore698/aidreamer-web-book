@@ -1,7 +1,22 @@
+/*
+ * COMPONENT: Alert
+ * 
+ * MISSION: Modal content with buttons. Confirmation anything
+ * or warnings about something
+ *
+**/
+
 import React from 'react'
 
-export default () => {
+export default ({ type, message }) => {
+    const classes = [
+        'ui-alert',
+        type
+    ]
+
     return (
-        <p>Alert</p>
+        <div className={classes.join(' ')}>
+            {message}
+        </div>
     )
 }
