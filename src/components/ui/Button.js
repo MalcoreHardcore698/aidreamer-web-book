@@ -22,7 +22,7 @@ const Button = ({ child, classes, handler }) => {
 
 const Ripple = ({ child, classes, handler }) => {
     return (
-        <Ripples color="var(--color-graylite)" during={1000}>
+        <Ripples color="#f3f3f3" during={1000}>
             <Button child={child} classes={classes} handler={handler} />
         </Ripples>
     )
@@ -46,7 +46,7 @@ export default (props) => {
         classes, handler
     }
 
-    if (state !== 'inactive')
+    if (state === 'active')
         return <Ripple {...options} />
 
     return <Button {...options} />

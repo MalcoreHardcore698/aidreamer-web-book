@@ -26,42 +26,42 @@ export default () => {
         <React.Fragment>
             <h1 className="book-title">Section</h1>
 
-            <p className="book-paragraph">Default Section with content</p>
+            <p className="book-paragraph">Default Section</p>
             <Section options={{
-                name: 'news',
-                title: 'News',
-                subtitle: articles.length,
+                name: 'preview',
+                title: 'Title',
+                subtitle: 'Subtitle',
                 targets
-            }}>
-                {articles.map((article, key) =>
-                    <Entry key={key} options={{
-                        capacious: false,
-                        userBar: {
-                            name: article.author,
-                            status: 'online',
-                            avatar: ImageAvatar
-                        },
-                        statusBar: [
-                            { lite: 'Comments', dark: '47' },
-                            { lite: 'Views', dark: '13,541' },
-                            { lite: 'May, 16', dark: '14:15 AM' }
-                        ]
-                    }}>
-                        <img className="image" src={ImageArticle} alt="Article" />
-                        <h2 className="title">Need a teammate</h2>
-                        <p className="paragraph">Some text for opinion</p>
-                    </Entry>  
-                )}
-            </Section>
+            }}></Section>
 
-            <p className="book-paragraph">Sections Offer</p>
+            <p className="book-paragraph">Section with Content</p>
             <Row type="flex">
                 <Section options={{
-                    name: 'user-offers',
-                    title: 'My Offers',
-                    subtitle: '0',
+                    name: 'news',
+                    title: 'News',
+                    subtitle: articles.length,
                     targets
-                }}></Section>
+                }}>
+                    {articles.map((article, key) =>
+                        <Entry key={key} options={{
+                            capacious: false,
+                            userBar: {
+                                name: article.author,
+                                status: 'online',
+                                avatar: ImageAvatar
+                            },
+                            statusBar: [
+                                { lite: 'Comments', dark: '47' },
+                                { lite: 'Views', dark: '13,541' },
+                                { lite: 'May, 16', dark: '14:15 AM' }
+                            ]
+                        }}>
+                            <img className="image" src={ImageArticle} alt="Article" />
+                            <h2 className="title">Need a teammate</h2>
+                            <p className="paragraph">Some text for opinion</p>
+                        </Entry>  
+                    )}
+                </Section>
 
                 <Section options={{
                     name: 'user-offers',
@@ -83,8 +83,6 @@ export default () => {
                 </Section>
             </Row>
 
-
-            <p className="book-paragraph">Section with filter search</p>
             <Section options={{
                 name: 'user-tours',
                 title: 'My Tours',

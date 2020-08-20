@@ -11,7 +11,7 @@
     box-shadow: var(--bs-entry);
     cursor: pointer;
     color: var(--color-graylite);
-    transition: all .15s ease;
+    transition: var(--transition);
 }
 
 .ui-button.icon {
@@ -30,6 +30,10 @@
 
 .ui-button.active * {
     z-index: var(--z-ten);
+}
+
+.ui-button.active:hover {
+    color: var(--color-accent);
 }
 
 .ui-button:not(.icon).active,
