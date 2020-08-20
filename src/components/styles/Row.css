@@ -1,0 +1,6 @@
+.ui-row {
+    display: grid;
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    grid-gap: 10px;
+}

@@ -21,10 +21,16 @@
     --color-body-background: #EBEEF1;
     --color-section-title: #494E63;
     --color-section-subtitle: #CACACB;
+    --color-button-background-ripple: #efedf5;
+    --color-button-background-disabled: #e4e8ec;
+    --color-button-border-disabled: #c9d2d6;
 
     /* z-index */
     --z-ten: 10;
+    --z-nine: 9;
     --z-primary: 1;
+
+    --transition: all .15s ease;
 }
 
 body {

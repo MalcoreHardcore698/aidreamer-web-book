@@ -1,23 +1,65 @@
 .ui-button {
-    outline: none;
-    border: none;
-    border-radius: var(--br-main);
-    background: transparent;
-    cursor: pointer;
-}
-
-.ui-button.icon {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
     height: 30px;
-    color: var(--color-graylite);
+    outline: none;
     border: 1px solid var(--color-graylite);
+    border-radius: var(--br-main);
+    background: transparent;
+    box-shadow: var(--bs-entry);
+    cursor: pointer;
+    color: var(--color-graylite);
     transition: all .15s ease;
 }
 
-.ui-button.icon:hover {
+.ui-button.icon {
+    width: 30px;
+}
+
+.ui-button:not(.disabled):hover {
     color: var(--color-graydark);
     border: 1px solid var(--color-graydark);
+}
+
+.ui-button.active,
+.ui-button.active * {
+    position: relative;
+}
+
+.ui-button.active * {
+    z-index: var(--z-ten);
+}
+
+.ui-button.active,
+.ui-button.flat {
+    padding: 0 15px;
+    font-weight: 500;
+}
+
+.ui-button.active::before {
+    content: '';
+    position: absolute;
+    z-index: var(--z-primary);
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    border-radius: var(--br-main);
+    background: var(--color-entry);
+}
+
+.ui-button.disabled {
+    background: var(--color-button-background-disabled);
+    border-color: var(--color-button-border-disabled);
+    cursor: default;
+}
+
+.react-ripples {
+    border-radius: var(--br-main);
+}
+
+.react-ripples s {
+    z-index: var(--z-nine);
 }
