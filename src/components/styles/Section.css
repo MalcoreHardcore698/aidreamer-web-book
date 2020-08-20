@@ -1,0 +1,57 @@
+.ui-section {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.ui-section .headline.with-link {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+}
+
+.ui-section .headline h2,
+.ui-section .headline.with-link a,
+.ui-section .headline.with-link a:active,
+.ui-section .headline.with-link a:visited,
+.ui-section .headline.with-link a:link,
+.ui-section .headline.with-link a:focus {
+    font-size: 1rem;
+    font-weight: 900;
+    opacity: .25;
+    color: black;
+    text-decoration: none;
+}
+
+.ui-section .headline h2 {
+    display: flex;
+    align-items: center;
+    margin: 0 0 15px 0;
+    padding: 0;
+}
+
+.ui-section .headline.with-link a {
+    line-height: 1.55;
+    transition: all .15s ease;
+}
+
+.ui-section .headline.with-link a:hover {
+    color: var(--color__accent-hover-link);
+    opacity: 1;
+}
+
+.ui-section.center .headline h2 {
+    justify-content: center;
+}
+
+.ui-section.end .headline h2 {
+    justify-content: flex-end;
+}
+
+.ui-section .headline h2 svg {
+    margin-right: 15px;
+}
+
+.ui-section.center .headline.with-link h2,
+.ui-section.end .headline.with-link h2 {
+    justify-content: flex-start;
+}

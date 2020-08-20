@@ -1,0 +1,146 @@
+:root {
+    --accent-color: #333333;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    position: relative;
+    font: 1rem 'Roboto', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: #f5f8fb;
+    border-radius: 5px;
+}
+
+.grid {
+    display: grid;
+}
+
+.group,
+.match {
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.045);
+    margin: 15px auto;
+    width: min-content;
+    border-radius: 5px;
+    background: white;
+    overflow: hidden;
+}
+
+
+.group .participant:first-child,
+.match .participant:first-child {
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid rgba(0,0,0,0.045);
+}
+
+.headers,
+.participant {
+    display: grid;
+    grid-template-columns: 32px 1fr min-content;
+    grid-gap: 10px;
+    height: 40px;
+    width: 320px;
+    background: white;
+    margin: 15px auto;
+    padding: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.headers {
+    grid-template-columns: 32px 1fr min-content;
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.045);
+}
+
+.participant:hover {
+    background: #f3f3f3;
+}
+
+.participant:hover .score {
+    background: #dadada;
+}
+
+.participant:hover .number {
+    color: #d8d8d8;
+    background: #eaeaea;
+}
+
+.headers .participant,
+.group .participant,
+.match .participant {
+    margin: 0;
+}
+
+.participant.error {
+    grid-template-columns: 1fr;
+}
+
+.headers p,
+.participant p {
+    margin: 0;
+    padding: 0;
+}
+
+.headers .row,
+.participant .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.participant.error .row {
+    justify-content: center;
+}
+
+.headers .block,
+.participant .block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    transition: all .3s ease;
+}
+
+.participant .number,
+.participant .score {
+    background: #efefef;
+    color: #333333;
+    border-radius: 5px;
+    margin: 5px;
+    transition: all .3s ease;
+}
+
+.headers .block {
+    color: #333333;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.participant .number {
+    color: #e4e4e4;
+    background: #f9f9f9;
+}
+
+.participant.error p {
+    color: #d2d2d2;
+}
+
+.participant.winner .block.winner {
+    color: #ffffff;
+    background: #737373;
+    border-radius: 5px;
+    margin: 5px;
+    width: 32px;
+    height: 32px;
+}
+
+.headers .row:first-child {
+    justify-content: center;
+}

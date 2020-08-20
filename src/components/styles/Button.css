@@ -1,0 +1,23 @@
+.ui-button {
+    outline: none;
+    border: none;
+    border-radius: var(--br-main);
+    background: transparent;
+    cursor: pointer;
+}
+
+.ui-button.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    color: var(--color-graylite);
+    border: 1px solid var(--color-graylite);
+    transition: all .15s ease;
+}
+
+.ui-button.icon:hover {
+    color: var(--color-graydark);
+    border: 1px solid var(--color-graydark);
+}

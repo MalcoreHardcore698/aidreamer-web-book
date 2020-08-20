@@ -1,0 +1,148 @@
+:root {
+    /* Main */
+    --br-main: 8px;
+    --border-main: 1px solid #EDEFF4;
+
+    --font-weight-section-title: bold;
+    --padding-content: 15px;
+
+    /* Entry */
+    --bs-entry: 0px 0px 2px rgba(97, 63, 161, 0.06);
+    --color-entry: #FFFFFF;
+
+    /* Statusbar */
+    --color-statusbar-background: #F8F9FB;
+
+    /* Colors */
+    --color-accent: #5E3FA1;
+    --color-text: #494E63;
+    --color-graylite: #AFBDC4;
+    --color-graydark: #6D8693;
+    --color-body-background: #EBEEF1;
+    --color-section-title: #494E63;
+    --color-section-subtitle: #CACACB;
+
+    /* z-index */
+    --z-ten: 10;
+    --z-primary: 1;
+}
+
+body {
+    background: var(--color-body-background);
+}
+
+p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+a, a:link, a:visited, a:hover, a:active, a:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+.book {
+    position: relative;
+}
+
+.book-block {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .025);
+    border: 1px solid rgba(0, 0, 0, .075);
+}
+
+.book .book-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 215px;
+    height: calc(100% - 75px);
+    padding: 25px 10px 75px 25px;
+    overflow-y: auto;
+    direction: rtl;
+    -webkit-scrollbar-width: none;
+    scrollbar-width: none;
+}
+
+.book .book-sidebar::-webkit-scrollbar {
+    width: 0;
+}
+
+.book .book-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.book .book-sidebar .logo {
+    padding: 15px;
+    height: 40px;
+}
+
+.book .book-sidebar .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.book .book-sidebar .chapter {
+    padding-left: 10px;
+}
+
+.book .book-sidebar .chapter .title {
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: black;
+    opacity: .25;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.book .book-sidebar .chapter .story {
+    display: flex;
+}
+
+.book .book-sidebar .chapter .story a {
+    position: relative;
+    color: silver;
+    font-weight: 400;
+    padding: 5px 0;
+    width: 100%;
+    text-align: left;
+    transition: all .15s ease;
+}
+
+.book .book-sidebar .chapter .story a.active {
+    color: #603ea0;
+    font-weight: 700;
+}
+
+.book .book-main {
+    position: relative;
+    left: 250px;
+    margin: 25px 25px 25px 10px;
+    padding: 0;
+    width: calc(100% - 290px);
+    min-height: calc(100vh - 150px);
+}
+
+.book .book-main .book-title {
+    padding: 0;
+    margin: 50px 0 15px 0;
+    font-weight: var(--font-weight-section-title);
+    color: var(--color-section-title);
+}
+
+.book .book-main .book-paragraph {
+    font-weight: 500;
+    margin: 15px 0;
+    opacity: .75;
+}
+
+.book .book-main .codeblock {
+    margin: 15px 0;
+}

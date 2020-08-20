@@ -1,0 +1,11 @@
+.ui-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px dashed #D2D2D2;
+    background: transparent;
+    color: #D2D2D2;
+    margin: 0;
+    padding: 25px;
+}
