@@ -1,45 +1,14 @@
-/*
- * COMPONENT: Slider
- * 
- * MISSION: ...
- *
-**/
-
-import React, { useState } from 'react'
+import React from 'react'
 import '../styles/Slider.css'
-import Message from './Message'
 
-export default ({ options }) => {
-    const {
-        state=null,
-        handler=null,
-        targets=[]
-    } = options || {}
-
+export default () => {
     const classes = [
-        'ui-slider'
+        'ui-sldier'
     ]
-
-    const [current, setCurrent] = useState(targets[0]?.type)
-    const handlerState = (target) => {
-        setCurrent(target)
-    }
 
     return (
         <div className={classes.join(' ')}>
-            {targets.map((target, key) =>
-                <div
-                    key={key}
-                    className={`slide${(target.type === current) ? ' active' : ''}`}
-                    onClick={() => (state && handler)
-                        ? handler
-                        : handlerState(target.type)
-                    }
-                >
-                    {target.value}
-                </div>    
-            )}
-            {(!targets || targets.length === 0) && <Message text="No Content" />}
+            <p>Slider</p>
         </div>
     )
 }

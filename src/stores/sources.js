@@ -50,5 +50,227 @@ options(
 <Modal options={{
     routes: content,hideModal
 }} />`
+    },
+    counterBadge: {
+        default: `function CounterBadge(Object options)
+options(
+    Number count,
+    String ?type: 'oval',
+    String ?color: 'white',
+    String ?background: 'accent',
+)`,
+    example: `<CounterBadge options={{
+    count: 5,
+    type: 'oval',
+    color: 'white',
+    background: 'var(--color-accent)',
+}} />`
+    },
+    alert: {
+        default: `function Alert()`,
+        example: ``
+    },
+    search: {
+        default: `function Search(Object options, Boolean filter)
+options(
+    String type,
+    String placeholder,
+    Function onChange
+)`,
+        example: `<Search
+    options={{
+        placeholder="Search"
+    }}
+    filter={true}
+/>`
+    },
+    asycSection: {
+        default: `function AsyncSection()`,
+        example: ``
+    },
+    avatar: {
+        default: `function Avatar(Object avatar, Array properties)`,
+        example: `<Avatar
+    avatar={{
+        path: ImageAvatar
+    }}
+    properties={['x64']}
+    // x64, x128, x256, circle
+/>`
+    },
+    carousel: {
+        default: `function Carousel()`,
+        example: ``
+    },
+    checkbox: {
+        default: `function Checkbox()`,
+        example: ``
+    },
+    colorPicker: {
+        default: `function ColorPicker()`,
+        example: ``
+    },
+    datePicker: {
+        default: `function DatePicker()`,
+        example: ``
+    },
+    divider: {
+        default: `function Divider()`,
+        example: ``
+    },
+    dropdown: {
+        default: `function Dropdown()`,
+        example: ``
+    },
+    slider: {
+        default: `function Slider()`,
+        example: ``
+    },
+    toggler: {
+        default: `function Toggler(Object options)
+options(
+    Object state,
+    Function handler,
+    Array targets: []
+)`,
+        example: `<Toggler options={{
+    targets: [
+        { type: 'all', value: <p>All</p> },
+        { type: 'last', value: <FontAwesomeIcon icon={faClock} /> },
+        { type: 'popular', value: <FontAwesomeIcon icon={faFire} /> }
+    ]
+}} />`
+    },
+    list: {
+        default: `function List()`,
+        example: ``
+    },
+    input: {
+        default: `function Input(Object options)
+options(
+    String type,
+    String placeholder,
+    Function onChange
+)`,
+        example: `<Input options={{
+    type: 'text',
+    placeholder: 'Enter your text'
+}} />`
+    },
+    textArea: {
+        default: `function TextArea(Object options)
+options(
+    String type,
+    String placeholder,
+    Boolean resize,
+    Function onChange
+)`,
+        example: `<TextArea options={{
+    placeholder: 'Write a message'
+}} />`
+    },
+    select: {
+        default: `function Select()`,
+        example: ``
+    },
+    section: {
+        default: `function Section(Object options)
+options(
+    String name,
+    String title,
+    String subtitle,
+    Boolean manage: true,
+    Boolean filter: false,
+    Array targets
+)`,
+        example: `<Section options={{
+    name: 'user-tours',
+    title: 'My Tours',
+    subtitle: tours.length,
+    filter: true,
+    targets
+}}>
+    ...
+</Section>`
+    },
+    message: {
+        default: `function Message(String text, Boolean padding)`,
+        example: `<Message text="No Content" padding />`
+    },
+    notify: {
+        default: `function Notify()`,
+        example: ``
+    },
+    entry: {
+        default: `function Entry(Object options)
+options(
+    Object ?userBar,
+    Object ?statusBar,
+    Boolean ?editable: false,
+    Boolean ?capacious: true,
+    Boolean ?manageOffset: false
+)`,
+        example: `<Entry options={{
+    userBar: {
+        name: 'noctua',
+        status: 'online',
+        avatar: ImageAvatar
+    },
+    statusBar: [
+        { lite: 'May, 16', dark: '14:15 AM' }
+    ]
+}}>
+    <h2 className="title">Need a teammate</h2>
+</Entry>
+
+<Entry options={{
+    editable: true,
+    capacious: false,
+    manageOffset: true,
+    statusBar: [
+        { lite: 'Participants', dark: 10 },
+        { lite: 'Date', dark: '21 December - 25 December' },
+        { lite: 'Prize Pool', dark: '1,000,000 USD' },
+        { lite: 'Location', dark: 'London' }
+    ]
+}}>
+    <img className="image" src={ImageTourPoster} alt="Tour" />
+    <h2 className="title separeted">
+        <span>Ignition Series 2020</span><span>Offcial</span>
+    </h2>
+</Entry> `
+    },
+    skeleton: {
+        default: `function Skeleton(String component, Object options)
+options(
+    Number widthRandomness,
+    Number heightRandomness,
+    String width,
+    String height,
+    String borderRadius,
+    String color,
+    Number count,
+    Boolean animated
+)`,
+        example: `<Skeleton
+    component="entry"
+    options={{
+        width: 480,
+        height: 350,
+        widthRandomness: 0
+    }}        
+/>`
+    },
+    table: {
+        default: `function Table()`,
+        example: ``
+    },
+    transaction: {
+        default: `function Transaction()`,
+        example: ``
+    },
+    grid: {
+        default: `function Grid()`,
+        example: `<Grid />`
     }
 }

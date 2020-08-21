@@ -6,6 +6,7 @@
 **/
 
 import React from 'react'
+import '../styles/Input.css'
 
 export default ({ options }) => {
     const {

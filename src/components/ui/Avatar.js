@@ -6,7 +6,6 @@
 **/
 
 import React from 'react'
-import Skeleton from './Skeleton'
 import '../styles/Avatar.css'
 
 export default ({ avatar, properties=[] }) => {
@@ -15,11 +14,9 @@ export default ({ avatar, properties=[] }) => {
         ...properties
     ]
 
-    if (!avatar) return <Skeleton component="avatar" />
-
     return (
         <div className={classes.join(' ')}>
-            <img src={avatar.path} alt="Avatar" />
+            <img src={avatar?.path} alt="Avatar" />
         </div>
     )
 }

@@ -9,17 +9,21 @@ import React from 'react'
 
 export default ({ options }) => {
     const {
+        type,
         placeholder='Write a message...',
-        onChange=() => {}
-    } = options
+        onChange=() => {}, resize=false
+    } = options || {}
 
     const classes = [
-        'ui-textarea'
+        'ui-textarea',
+        type
     ]
 
     return (
-        <textarea className={classes.join(' ')}
+        <textarea
+            className={classes.join(' ')}
             placeholder={placeholder}
+            style={{ resize: (resize) ? 'auto' : 'none' }}
             onChange={onChange}
         />
     )

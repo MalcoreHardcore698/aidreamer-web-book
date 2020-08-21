@@ -7,6 +7,7 @@ import Avatar from './components/stories/Avatar'
 import AsyncSection from './components/stories/AsyncSection'
 import Section from './components/stories/Section'
 import Slider from './components/stories/Slider'
+import Toggler from './components/stories/Toggler'
 import List from './components/stories/List'
 import Carousel from './components/stories/Carousel'
 import Entry from './components/stories/Entry'
@@ -56,32 +57,33 @@ export default [
     {
         title: 'Components API',
         stories: [
-            { title: 'Alert', component: Alert },
-            { title: 'AsyncSection', component: AsyncSection },
-            { title: 'Avatar', component: Avatar },
+            { title: 'Alert', component: Alert, source: sources.alert  },
+            { title: 'AsyncSection', component: AsyncSection, source: sources.asycSection  },
+            { title: 'Avatar', component: Avatar, source: sources.avatar  },
             { title: 'Button', component: Button, source: sources.button },
-            { title: 'Carousel', component: Carousel },
-            { title: 'Checkbox', component: Checkbox },
-            { title: 'ColorPicker', component: ColorPicker },
-            { title: 'CounterBadge', component: CounterBadge },
-            { title: 'DatePicker', component: DatePicker },
-            { title: 'Divider', component: Divider },
-            { title: 'Dropdown', component: Dropdown },
-            { title: 'Slider', component: Slider },
-            { title: 'List', component: List },
-            { title: 'Input', component: Input },
-            { title: 'TextArea', component: TextArea },
-            { title: 'Search', component: Search },
-            { title: 'Select', component: Select },
-            { title: 'Section', component: Section },
-            { title: 'Message', component: Message },
+            { title: 'Carousel', component: Carousel, source: sources.carousel  },
+            { title: 'Checkbox', component: Checkbox, source: sources.checkbox  },
+            { title: 'ColorPicker', component: ColorPicker, source: sources.colorPicker  },
+            { title: 'CounterBadge', component: CounterBadge, source: sources.counterBadge },
+            { title: 'DatePicker', component: DatePicker, source: sources.datePicker  },
+            { title: 'Divider', component: Divider, source: sources.divider  },
+            { title: 'Dropdown', component: Dropdown, source: sources.dropdown  },
+            { title: 'Slider', component: Slider, source: sources.slider  },
+            { title: 'Toggler', component: Toggler, source: sources.toggler  },
+            { title: 'List', component: List, source: sources.list  },
+            { title: 'Input', component: Input, source: sources.input  },
+            { title: 'TextArea', component: TextArea, source: sources.textArea  },
+            { title: 'Search', component: Search, source: sources.search  },
+            { title: 'Select', component: Select, source: sources.select  },
+            { title: 'Section', component: Section, source: sources.section  },
+            { title: 'Message', component: Message, source: sources.message  },
             { title: 'Modal', component: Modal, source: sources.modal },
-            { title: 'Notify', component: Notify },
-            { title: 'Entry', component: Entry },
-            { title: 'Skeleton', component: Skeleton },
-            { title: 'Table', component: Table },
-            { title: 'Transaction', component: Transaction },
-            { title: 'Grid', component: Grid },
+            { title: 'Notify', component: Notify, source: sources.notify  },
+            { title: 'Entry', component: Entry, source: sources.entry  },
+            { title: 'Skeleton', component: Skeleton, source: sources.skeleton  },
+            { title: 'Table', component: Table, source: sources.table  },
+            { title: 'Transaction', component: Transaction, source: sources.transaction  },
+            { title: 'Grid', component: Grid, source: sources.grid  },
         ]
     },
     {

@@ -27,6 +27,6 @@
     object-fit: cover;
 }
 
-.ui-avatar.round {
+.ui-avatar.circle {
     border-radius: 50%;
 }

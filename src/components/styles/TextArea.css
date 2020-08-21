@@ -1,16 +1,18 @@
-.ui-search {
+.ui-textarea {
     height: var(--height-main);
     outline: none;
     color: var(--color-graylite);
     border: 1px solid var(--color-graylite);
     border-radius: var(--br-main);
     background: transparent;
-    padding: 0 15px;
+    padding: 15px;
     font-weight: 600;
     cursor: text;
+    font-family: inherit;
     transition: all .15s ease;
 }
 
-.ui-search::placeholder {
+.ui-textarea::placeholder {
     color: var(--color-graylite);
+    font-family: inherit;
 }

@@ -1,3 +1,7 @@
 .ui-container {
     padding: var(--padding-content);
 }
+
+.ui-container.clear {
+    padding: 0;
+}

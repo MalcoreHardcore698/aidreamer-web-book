@@ -3,9 +3,14 @@ import '../styles/Container.css'
 
 export default (props) => {
     const Children = props.children
+    
+    const classes = [
+        'ui-container',
+        (props.clear) ? 'clear' : ''
+    ]
 
     return (
-        <div className="ui-container">
+        <div className={classes.join(' ')}>
             {Children}
         </div>
     )

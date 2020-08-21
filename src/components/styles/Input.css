@@ -1,4 +1,4 @@
-.ui-search {
+.ui-input {
     height: var(--height-main);
     outline: none;
     color: var(--color-graylite);
@@ -8,9 +8,9 @@
     padding: 0 15px;
     font-weight: 600;
     cursor: text;
-    transition: all .15s ease;
+    transition: var(--transition);
 }
 
-.ui-search::placeholder {
+.ui-input::placeholder {
     color: var(--color-graylite);
 }

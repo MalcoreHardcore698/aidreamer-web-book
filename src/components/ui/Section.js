@@ -8,7 +8,7 @@
 import React from 'react'
 import Message from './Message'
 import Search from './Search'
-import Slider from './Slider'
+import Toggler from './Toggler'
 import Row from './Row'
 import '../styles/Section.css'
 
@@ -16,7 +16,7 @@ const Manage = ({ filter, targets }) => {
     return (
         <Row>
             <Search filter={filter} />
-            <Slider options={{ targets }} />
+            <Toggler options={{ targets }} />
         </Row>
     )
 }

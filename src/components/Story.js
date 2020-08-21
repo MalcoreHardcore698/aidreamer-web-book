@@ -14,6 +14,10 @@ export default ({ component, source }) => {
         codeBlock: true
     }
 
+    const text = `// Example
+    
+${source?.example || deafult}`
+
     return (
         <div className="book-story">
             <Component />
@@ -23,7 +27,7 @@ export default ({ component, source }) => {
             </div>
 
             <div className="codeblock">
-                <CopyBlock {...options} text={source?.example || deafult} />
+                <CopyBlock {...options} text={text} />
             </div>
         </div>
     )
