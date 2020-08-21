@@ -1,0 +1,36 @@
+.ui-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-ninetynine);
+}
+
+.ui-modal .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-one-hundred);
+    background: rgb(0 0 0 / 15%);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+.ui-modal .background.clear {
+    cursor: default;
+}
+
+.ui-modal .wrapper {
+    position: relative;
+    background: white;
+    border: var(--border-main);
+    border-radius: var(--br-main);
+    box-shadow: var(--bs-main);
+    z-index: var(--z-one-hundred-one);
+}

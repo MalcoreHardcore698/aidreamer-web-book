@@ -6,14 +6,26 @@
 **/
 
 import React from 'react'
+import '../styles/CounterBadge.css'
 
-export default ({ type, color, count }) => {
+export default ({ options }) => {
+    const {
+        type,
+        color,
+        background,
+        count
+    } = options
+
     const classes = [
-        'ui-counter-badge',
-        type, color='default'
+        'ui-counter-badge', type
     ]
 
     return (
-        <span className={classes.join(' ')}>{count}</span>
+        <span
+            className={classes.join(' ')}
+            style={{
+                color, background
+            }}
+        >{count}</span>
     )
 }
