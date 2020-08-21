@@ -1,10 +1,30 @@
 import React from 'react'
+import { CopyBlock, dracula } from 'react-code-blocks'
 
-export default ({ component }) => {
+const deafult = '{/* Empty */}'
+
+export default ({ component, source }) => {
     const Component = component
+
+    const options = {
+        language: 'jsx',
+        showLineNumbers: false,
+        wrapLines: true,
+        theme: dracula,
+        codeBlock: true
+    }
+
     return (
         <div className="book-story">
             <Component />
+
+            <div className="codeblock">
+                <CopyBlock {...options} text={source?.default || deafult} />
+            </div>
+
+            <div className="codeblock">
+                <CopyBlock {...options} text={source?.example || deafult} />
+            </div>
         </div>
     )
 }

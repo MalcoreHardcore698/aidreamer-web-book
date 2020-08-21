@@ -30,6 +30,8 @@ import Table from './components/stories/Table'
 import Search from './components/stories/Search'
 import Grid from './components/stories/Grid'
 
+import sources from './stores/sources'
+
 /*
  *  STRUCTURE BOOK
  *
@@ -57,7 +59,7 @@ export default [
             { title: 'Alert', component: Alert },
             { title: 'AsyncSection', component: AsyncSection },
             { title: 'Avatar', component: Avatar },
-            { title: 'Button', component: Button },
+            { title: 'Button', component: Button, source: sources.button },
             { title: 'Carousel', component: Carousel },
             { title: 'Checkbox', component: Checkbox },
             { title: 'ColorPicker', component: ColorPicker },
@@ -73,7 +75,7 @@ export default [
             { title: 'Select', component: Select },
             { title: 'Section', component: Section },
             { title: 'Message', component: Message },
-            { title: 'Modal', component: Modal },
+            { title: 'Modal', component: Modal, source: sources.modal },
             { title: 'Notify', component: Notify },
             { title: 'Entry', component: Entry },
             { title: 'Skeleton', component: Skeleton },

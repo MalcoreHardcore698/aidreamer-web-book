@@ -50,7 +50,7 @@ export default (props) => {
                 />}
             </div>
             <div className="content">
-                {Children || <Message text="No Content" />}
+                {Children || <Message text="No Content" padding />}
             </div>
         </section>
     )

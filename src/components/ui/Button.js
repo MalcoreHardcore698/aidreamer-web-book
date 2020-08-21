@@ -9,11 +9,17 @@ import React from 'react'
 import Ripples from 'react-ripples'
 import '../styles/Button.css'
 
-const Button = ({ child, classes, handler }) => {
+const Button = ({ child, classes, disabled, handler }) => {
+    const handlerClick = async (e) => {
+        e.preventDefault()
+        await handler(e)
+    }
+
     return (
         <button
             className={classes.join(' ')}
-            onClick={handler}
+            disabled={disabled}
+            onClick={handlerClick}
         >
             {child}
         </button>
@@ -33,17 +39,20 @@ export default (props) => {
 
     const {
         type, state,
+        classNames, disabled,
         handler=(e) => { e.preventDefault() },
     } = props.options || {}
 
     const classes = [
         'ui-button',
+        classNames,
         type, state
     ]
 
     const options = {
         child: Children,
-        classes, handler
+        classes, handler,
+        disabled
     }
 
     if (state === 'active')

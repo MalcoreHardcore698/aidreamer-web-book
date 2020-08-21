@@ -29,7 +29,7 @@ export default [
             exact: true,
             path: `/${parseLink(story.title)}`,
             component: () => <Main>
-                <Story component={story.component} />
+                <Story component={story.component} source={story.source} />
             </Main>
         }))
 ]

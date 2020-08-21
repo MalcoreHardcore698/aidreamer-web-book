@@ -10,8 +10,11 @@
 **/
 
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import '../styles/Modal.css'
 import Transition from './Transition'
+import Button from './Button'
 
 function getPath(navigator) {
     if (!navigator || navigator.length === 0)
@@ -38,19 +41,10 @@ const Switch = (props) => {
 
 const Route = ({ component, jump }) => component(jump)
 
-const Link = (props) => {
-    const Children = props.children
-
-    return (
-        <button onClick={props.handler}>
-            {Children}
-        </button>
-    )
-}
-
 export default ({ options }) => {
     const [navigator, setNavigator] = useState(['/'])
     const [content, setContent] = useState(false)
+    const [animation, setAnimation] = useState(null)
 
     const {
         title,
@@ -90,18 +84,27 @@ export default ({ options }) => {
     }
 
     const handlerBack = () => {
-        setNavigator([
-            ...navigator.filter((e, i) => (i !== (navigator.length - 1)))
-        ])
+        setAnimation('slideOutRight')
+        setTimeout(() => {
+            setNavigator([
+                ...navigator.filter((e, i) => (i !== (navigator.length - 1)))
+            ])
+            setAnimation('slideInLeft')
+        }, 150)
     }
     const handlerJump = (path) => {
-        setNavigator([
-            ...navigator,
-            path
-        ])
+        setAnimation('slideOutLeft')
+        setTimeout(() => {
+            setNavigator([
+                ...navigator,
+                path
+            ])
+            setAnimation('slideInRight')
+        }, 150)
     }
     const handlerClose = () => {
         setContent(false)
+        setAnimation(null)
         
         setTimeout(() => {
             setNavigator(['/'])
@@ -118,9 +121,15 @@ export default ({ options }) => {
                 ></div>
 
                 <Transition {...transitions.swing}>
-                    <div className="wrapper">
+                    <div className={`wrapper animate${(animation) ? ` ${animation}` : ''}`}>
                         <div className="headline">
-                            {(navigator.length > 1) && <Link handler={handlerBack}>Back</Link>}
+                            {(navigator.length > 1) && <Button options={{
+                                state: 'icon',
+                                lockdown: true,
+                                handler: () => handlerBack()
+                            }}>
+                                <FontAwesomeIcon icon={faArrowLeft} />
+                            </Button>}
                             <h1>{(title && !routes) ? title : getTitle()}</h1>
                         </div>
 

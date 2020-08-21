@@ -60,6 +60,14 @@
     cursor: default;
 }
 
+.ui-button.stretch {
+    width: 100%;
+}
+
+.ui-button.mbs15 {
+    margin-block-start: 15px;
+}
+
 .react-ripples {
     border-radius: var(--br-main);
 }

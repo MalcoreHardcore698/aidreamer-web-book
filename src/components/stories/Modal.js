@@ -1,30 +1,54 @@
 import React, { useState } from 'react'
+import Entry from '../ui/Entry'
 import Button from '../ui/Button'
 import Modal from '../ui/Modal'
+import Message from '../ui/Message'
+import Container from '../ui/Container'
 
 const ArticleEdit = ({ jump }) => {
     return (
-        <React.Fragment>
-            <p>Article Edit</p>
-            <button onClick={() => jump('/gallery')}>Choose Image</button>
-        </React.Fragment>
+        <Container>
+            <Entry options={{
+                statusBar: [
+                    { lite: 'May, 16', dark: '14:15 AM' }
+                ]
+            }}>
+                <h2 className="title">Need a teammate</h2>
+                <p className="paragraph">Some text for opinion</p>
+            </Entry>
+            <Button options={{
+                state: 'inactive',
+                lockdown: true,
+                classNames: 'stretch mbs15',
+                handler: () => jump('/gallery')
+            }}>
+                <p>Next</p>
+            </Button>
+        </Container>
     )
 }
 
 const ChooseImage = ({ jump }) => {
     return (
-        <React.Fragment>
-            <p>Image</p>
-            <p>Image</p>
-            <p>Image</p>
-            <button onClick={() => jump('/gallery/info')}>Here must be information about Image</button>
-        </React.Fragment>
+        <Container>
+            <Message text="No Content" padding />
+            <Button options={{
+                state: 'inactive',
+                lockdown: true,
+                classNames: 'stretch mbs15',
+                handler: () => jump('/gallery/info')
+            }}>
+                <p>Next</p>
+            </Button>
+        </Container>
     )
 }
 
 const InfoImage = () => {
     return (
-        <p>Info Image</p>
+        <Container>
+            <Message text="No Content" padding />
+        </Container>
     )
 }
 
@@ -58,17 +82,17 @@ export default () => {
                 handler: () => showModal([
                     {
                         path: '/',
-                        title: 'Article Edit',
+                        title: 'Welcome to AidReamer!',
                         component: (jump) => <ArticleEdit jump={jump} />
                     },
                     {
                         path: '/gallery',
-                        title: 'Choose Image from gallery',
+                        title: 'Step 1',
                         component: (jump) => <ChooseImage jump={jump} />
                     },
                     {
                         path: '/gallery/info',
-                        title: 'Info Image',
+                        title: 'Step 2',
                         component: () => <InfoImage />
                     }
                 ])
@@ -77,7 +101,7 @@ export default () => {
             </Button>
 
             <Modal options={{
-                routes: content, hideModal
+                routes: content,hideModal
             }} />
         </React.Fragment>
     )
