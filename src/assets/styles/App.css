@@ -26,6 +26,9 @@
     --color-button-background-ripple: #efedf5;
     --color-button-background-disabled: #e4e8ec;
     --color-button-border-disabled: #c9d2d6;
+    --color-background-red: #e46c6c;
+    --color-background-orange: #e4ae6c;
+    --color-background-blue: #6ca7e4;
 
     /* Font Size */
     --fz-headline: 22px;
@@ -34,6 +37,7 @@
     --z-one-hundred-one: 101;
     --z-one-hundred: 100;
     --z-ninetynine: 99;
+    --z-twenty: 20;
     --z-ten: 10;
     --z-nine: 9;
     --z-primary: 1;

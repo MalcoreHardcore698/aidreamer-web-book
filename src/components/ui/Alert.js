@@ -7,6 +7,7 @@
 **/
 
 import React from 'react'
+import '../styles/Alert.css'
 
 export default ({ type, message }) => {
     const classes = [

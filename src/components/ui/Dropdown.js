@@ -6,23 +6,32 @@
  *
 **/
 
-import React from 'react'
-import List from './List'
+import React, { useRef } from 'react'
+import '../styles/Dropdown.css'
 
-export default ({ options }) => {
+export default (props) => {
+    const Children = props.children
+
     const {
-        type='',
-        list={}
-    } = options
+        type, styles, dropdown
+    } = props.options || {}
 
     const classes = [
         'ui-dropdown',
         type
     ]
 
+    const dropdownRef = useRef()
+
+    if (!dropdown) return null
+
     return (
-        <div className={classes.join(' ')}>
-            <List options={{ ...list }} />
+        <div
+            ref={dropdownRef}
+            className={classes.join(' ')}
+            style={styles}
+        >
+            {Children}
         </div>
     )
 }

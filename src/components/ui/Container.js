@@ -6,7 +6,8 @@ export default (props) => {
     
     const classes = [
         'ui-container',
-        (props.clear) ? 'clear' : ''
+        (props.clear) ? 'clear' : '',
+        (props.sticky) ? 'sticky' : ''
     ]
 
     return (

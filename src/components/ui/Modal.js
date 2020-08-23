@@ -39,7 +39,13 @@ const Switch = (props) => {
     return Child
 }
 
-const Route = ({ component, jump }) => component(jump)
+const Route = ({ component, close, jump }) => {
+    const Compoent = component
+    return <Compoent
+        close={close}
+        jump={jump}
+    />
+}
 
 export default ({ options }) => {
     const [navigator, setNavigator] = useState(['/'])
@@ -136,7 +142,7 @@ export default ({ options }) => {
                         {(home && !routes) ? home
                         : <Switch path={getPath(navigator)}>
                             {routes?.map((props, key) =>
-                                <Route key={key} {...props} jump={handlerJump} />
+                                <Route key={key} {...props} close={handlerClose} jump={handlerJump} />
                             )}
                         </Switch>}
                     </div>

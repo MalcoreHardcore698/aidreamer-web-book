@@ -73,7 +73,7 @@ export default () => {
   }
 
   return (
-    <div className="app">
+    <div className="ui-grid">
       <Stage
         width={width}
         height={height}

@@ -53,9 +53,9 @@ const InfoImage = () => {
 }
 
 export default () => {
-    const [content, setModal] = useState()
+    const [state, setModal] = useState()
 
-    const showModal = (content) => setModal(content)
+    const showModal = (state) => setModal(state)
     const hideModal = () => setModal(null)
 
     return (
@@ -83,12 +83,12 @@ export default () => {
                     {
                         path: '/',
                         title: 'Welcome to AidReamer!',
-                        component: (jump) => <ArticleEdit jump={jump} />
+                        component: ({ jump }) => <ArticleEdit jump={jump} />
                     },
                     {
                         path: '/gallery',
                         title: 'Step 1',
-                        component: (jump) => <ChooseImage jump={jump} />
+                        component: ({ jump }) => <ChooseImage jump={jump} />
                     },
                     {
                         path: '/gallery/info',
@@ -101,7 +101,8 @@ export default () => {
             </Button>
 
             <Modal options={{
-                routes: content,hideModal
+                routes: state,
+                hideModal
             }} />
         </React.Fragment>
     )

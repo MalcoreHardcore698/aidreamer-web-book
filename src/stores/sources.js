@@ -30,12 +30,12 @@ options(
         {
             path: '/',
             title: 'Welcome to AidReamer!',
-            component: (jump) => <ArticleEdit jump={jump} />
+            component: ({ jump }) => <ArticleEdit jump={jump} />
         },
         {
             path: '/gallery',
             title: 'Step 1',
-            component: (jump) => <ChooseImage jump={jump} />
+            component: ({ jump }) => <ChooseImage jump={jump} />
         },
         {
             path: '/gallery/info',
@@ -48,7 +48,8 @@ options(
 </Button>
 
 <Modal options={{
-    routes: content,hideModal
+    routes: content,
+    hideModal
 }} />`
     },
     counterBadge: {
@@ -67,8 +68,8 @@ options(
 }} />`
     },
     alert: {
-        default: `function Alert()`,
-        example: ``
+        default: `function Alert(String type, String message)`,
+        example: `<Alert type="error" message="Error Message" />`
     },
     search: {
         default: `function Search(Object options, Boolean filter)
@@ -99,12 +100,31 @@ options(
 />`
     },
     carousel: {
-        default: `function Carousel()`,
+        default: `function Carousel(Object options)`,
         example: ``
     },
     checkbox: {
-        default: `function Checkbox()`,
-        example: ``
+        default: `function Checkbox(Object options)
+options(
+    String type,
+    Array list: [],
+    Function handler
+)
+list(
+    Number id,
+    String value,
+    Boolean checked
+)`,
+        example: `const [items, setItems] = useState([
+    { id: 0, value: 'Item 1', checked: true },
+    { id: 1, value: 'Item 2', checked: false },
+    { id: 2, value: 'Item 3', checked: true }
+])
+
+<Checkbox options={{
+    list: items,
+    handler: setItems
+}} />`
     },
     colorPicker: {
         default: `function ColorPicker()`,
@@ -119,8 +139,39 @@ options(
         example: ``
     },
     dropdown: {
-        default: `function Dropdown()`,
-        example: ``
+        default: `function Dropdown(Object options)
+options(
+    String type,
+    Boolean dropdown,
+    Object styles
+)`,
+        example: `<Container clear sticky>
+<Button options={{
+    state: 'active',
+    handler: () => setDropdown1(!dropdown1)
+}}>
+    <p>See Article</p>
+</Button>
+
+<Dropdown options={{ dropdown: dropdown1, styles: { left: 0, width: 320 } }}>
+    <Entry options={{
+        userBar: {
+            name: 'noctua',
+            status: 'online',
+            avatar: ImageAvatar
+        },
+        statusBar: [
+            { lite: 'Comments', dark: '47' },
+            { lite: 'Views', dark: '13,541' },
+            { lite: 'May, 16', dark: '14:15 AM' }
+        ]
+    }}>
+        <img className="image" src={ImageArticle} alt="Article" />
+        <h2 className="title">Need a teammate</h2>
+        <p className="paragraph">Some text for opinion</p>
+    </Entry>
+</Dropdown>
+</Container>`
     },
     slider: {
         default: `function Slider()`,
@@ -262,8 +313,117 @@ options(
 />`
     },
     table: {
-        default: `function Table()`,
-        example: ``
+        default: `function Table(Array data, Array ?actions)
+data(
+    // Define columns
+    { String header, Any value, String type },
+    ...
+)
+action(
+    // Define manage actions
+    ({ Array ?table, Boolean ?dishands }) => (
+        ...
+    ),
+    ...
+)`,
+        example: `<Table options={{
+    data: users.map(user => ([
+        { header: 'ID', value: user.id, type: 'text', visible: false },
+        { header: 'Аватар', value: user.avatar.path, type: 'img' },
+        { header: 'Имя', value: user.name, type: 'text' },
+        { header: 'Пароль', value: user.password, type: 'text' },
+        { header: 'Email', value: user.email, type: 'text' },
+        { header: 'Телефон', value: user.phone, type: 'text' },
+        { header: 'Роль', value: user.role, type: 'text' },
+        { header: 'Баланс', value: user.balance, type: 'text' },
+        { header: 'Дата последнего входа', value: user.dateLastAuth, type: 'text', visible: false },
+        { header: 'Дата регистрации', value: user.dateRegistration, type: 'twxt', visible: false },
+        { header: 'Подтвержден Email', value: user.isVerifiedEmail, type: 'text', visible: false },
+        { header: 'Подтвержден телефон', value: user.isVerifiedPhone, type: 'text', visible: false },
+        { header: 'Включены уведомления', value: user.isNotified, type: 'text', visible: false }
+    ])),
+    actions: [
+        ({ table, dishands }) => (
+            <Button options={{
+                type: 'icon',
+                state: (dishands) ? 'disable' : 'active',
+                disabled: dishands,
+                classNames: 'stretch',
+                handler: () => {
+                    dispatch(setDocuments(table.filter(t => t.checked)))
+                    showModal([
+                        {
+                            path: '/',
+                            title: 'Are you sure you want to delete this document?',
+                            component: ({ close }) => <Alert close={close} />
+                        }
+                    ])
+                }
+            }}>
+                <FontAwesomeIcon icon={faTrash} />
+            </Button>
+        ),
+        ({ dishands }) => (
+            <Button options={{
+                type: 'icon',
+                state: (dishands) ? 'disable' : 'active',
+                disabled: dishands,
+                classNames: 'stretch',
+                handler: () => showModal([
+                    {
+                        path: '/',
+                        title: 'Welcome to AidReamer!',
+                        component: ({ jump }) => <ArticleEdit jump={jump} />
+                    },
+                    {
+                        path: '/gallery',
+                        title: 'Step 1',
+                        component: ({ jump }) => <ChooseImage jump={jump} />
+                    },
+                    {
+                        path: '/gallery/info',
+                        title: 'Step 2',
+                        component: () => <InfoImage />
+                    }
+                ])
+            }}>
+                <FontAwesomeIcon icon={faPlus} />
+            </Button>
+        ),
+        ({ dishands }) => (
+            <Button options={{
+                type: 'icon',
+                state: (dishands) ? 'disable' : 'active',
+                disabled: dishands,
+                classNames: 'stretch',
+                handler: () => showModal([
+                    {
+                        path: '/',
+                        title: 'Welcome to AidReamer!',
+                        component: ({ jump }) => <ArticleEdit jump={jump} />
+                    },
+                    {
+                        path: '/gallery',
+                        title: 'Step 1',
+                        component: ({ jump }) => <ChooseImage jump={jump} />
+                    },
+                    {
+                        path: '/gallery/info',
+                        title: 'Step 2',
+                        component: () => <InfoImage />
+                    }
+                ])
+            }}>
+                <FontAwesomeIcon icon={faPlus} />
+            </Button>
+        )
+    ]
+}} />
+
+<Modal options={{
+    routes: state,
+    hideModal
+}} />`
     },
     transaction: {
         default: `function Transaction()`,
