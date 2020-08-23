@@ -21,6 +21,7 @@ import Button from './components/stories/Button'
 import Input from './components/stories/Input'
 import TextArea from './components/stories/TextArea'
 import Checkbox from './components/stories/Checkbox'
+import Radiobox from './components/stories/Radiobox'
 import Select from './components/stories/Select'
 import DatePicker from './components/stories/DatePicker'
 import ColorPicker from './components/stories/ColorPicker'
@@ -62,6 +63,7 @@ export default [
             { title: 'Avatar', component: Avatar, source: sources.avatar  },
             { title: 'Button', component: Button, source: sources.button },
             { title: 'Carousel', component: Carousel, source: sources.carousel  },
+            { title: 'Radiobox', component: Radiobox, source: sources.radiobox },
             { title: 'Checkbox', component: Checkbox, source: sources.checkbox  },
             { title: 'ColorPicker', component: ColorPicker, source: sources.colorPicker  },
             { title: 'CounterBadge', component: CounterBadge, source: sources.counterBadge },

@@ -126,6 +126,18 @@ list(
     handler: setItems
 }} />`
     },
+    radiobox: {
+        default: `function Radiobox(Object options)
+options(
+    String type,
+    Array list: [],
+    Function handler
+)`,
+        example: `<Radiobox options={{
+    list: items,
+    handler: setItems
+}} />`
+    },
     colorPicker: {
         default: `function ColorPicker()`,
         example: ``
