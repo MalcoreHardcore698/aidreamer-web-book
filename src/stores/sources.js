@@ -261,8 +261,18 @@ options(
         example: `<Message text="No Content" padding />`
     },
     notify: {
-        default: `function Notify()`,
-        example: ``
+        default: `function Notify(Object options)
+options(
+    String type,
+    String area,
+    Object avatar,
+    String message
+)`,
+        example: `<Notify options={{
+    area: 'admin',
+    type: 'warning',
+    message: 'Neccessary filled all fileds'
+}} />`
     },
     entry: {
         default: `function Entry(Object options)

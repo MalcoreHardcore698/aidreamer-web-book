@@ -56,8 +56,12 @@ export default ({ options }) => {
 
     return (
         <div className={classes.join(' ')}>
-            {renderMedia()}
-            {renderMessage()}
+            <div className="icon">
+                {renderMedia()}
+            </div>
+            <div className="message">
+                {renderMessage()}
+            </div>
         </div>
     )
 }
