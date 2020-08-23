@@ -54,14 +54,13 @@ export default () => {
                     <p>Checkboxes</p>
                 </Button>
 
-                <Dropdown options={{ dropdown: dropdown2, styles: { left: 0, width: 320 } }}>
+                <Dropdown options={{ dropdown: dropdown2, styles: { left: 0 } }}>
                     <Checkbox options={{
                         list: [
-                            'Item 1',
-                            'Item 2',
-                            'Item 3'
+                            { id: 0, value: 'Item 1', checked: true },
+                            { id: 1, value: 'Item 2', checked: false },
+                            { id: 2, value: 'Item 3', checked: false }
                         ],
-                        compareValue: checked,
                         handler: setChecked
                     }} />
                 </Dropdown>

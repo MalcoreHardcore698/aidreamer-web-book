@@ -7,8 +7,8 @@
     border-radius: var(--br-main);
     box-shadow: var(--bs-main);
     background: white;
-    padding: 5px 0;
-    width: 245px;
+    padding: 10px;
+    width: max-content;
 }
 
 .ui-dropdown.zoomIn {
