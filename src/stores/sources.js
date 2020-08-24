@@ -283,6 +283,32 @@ options(
     message: 'Neccessary filled all fileds'
 }} />`
     },
+    navigation: {
+        default: `function Navigation(Object options)
+options(
+    Array links,
+    Array buttons,
+    String axis
+)`,
+        example: `const [state, setModal] = useState()
+
+const showModal = (state) => setModal(state)
+const hideModal = () => setModal(null)
+
+const buttons = [
+    getButton(showModal, routes, faBell),
+    getButton(showModal, routes, faCog)
+]
+
+<Navigation options={{
+    links, buttons
+}} />
+
+<Modal options={{
+    routes: state,
+    hideModal
+}} />`
+    },
     entry: {
         default: `function Entry(Object options)
 options(

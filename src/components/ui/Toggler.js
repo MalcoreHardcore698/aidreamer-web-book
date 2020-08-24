@@ -6,8 +6,8 @@
 **/
 
 import React, { useState } from 'react'
-import '../styles/Toggler.css'
 import Message from './Message'
+import '../styles/Toggler.css'
 
 export default ({ options }) => {
     const {

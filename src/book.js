@@ -19,6 +19,7 @@ import Modal from './components/stories/Modal'
 import Alert from './components/stories/Alert'
 import Message from './components/stories/Message'
 import Button from './components/stories/Button'
+import Navigation from './components/stories/Navigation'
 import Input from './components/stories/Input'
 import TextArea from './components/stories/TextArea'
 import Checkbox from './components/stories/Checkbox'
@@ -73,6 +74,7 @@ const stories = [
     { title: 'Message', component: Message, source: sources.message  },
     { title: 'Modal', component: Modal, source: sources.modal },
     { title: 'Notify', component: Notify, source: sources.notify  },
+    { title: 'Navigation', component: Navigation, source: sources.navigation  },
     { title: 'Entry', component: Entry, source: sources.entry  },
     { title: 'Skeleton', component: Skeleton, source: sources.skeleton  },
     { title: 'Table', component: Table, source: sources.table  },
