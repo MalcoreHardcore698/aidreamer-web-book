@@ -1,0 +1,55 @@
+.ui-slider {
+    position: relative;
+    left: 8px;
+    width: calc(320px - 16px);
+    margin: 20px 0;
+}
+
+.ui-slider .scale {
+    width: 100%;
+    height: 2px;
+    border-radius: var(--br-main);
+    background: var(--color-accent);
+}
+
+.ui-slider.inactive .scale {
+    background: var(--color-graylite);
+}
+
+.ui-slider .points {
+    position: relative;
+    top: -3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ui-slider .points .point {
+    width: 4px;
+    height: 4px;
+    background: var(--color-accent);
+    border-radius: 50%; 
+}
+
+.ui-slider.inactive .points .point {
+    background: var(--color-graydark);
+}
+
+.ui-slider .toggle {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.ui-slider.inactive .toggle {
+    top: -7px;
+    width: 10px;
+    height: 10px;
+    background: var(--color-graydark);
+    border: 3px solid var(--color-body-background);
+    cursor: default;
+}
