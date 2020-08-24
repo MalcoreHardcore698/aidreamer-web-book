@@ -11,13 +11,15 @@ import Message from './Message'
 
 export default ({ options }) => {
     const {
+        type,
         state=null,
         handler=null,
         targets=[]
     } = options || {}
 
     const classes = [
-        'ui-toggler'
+        'ui-toggler',
+        type
     ]
 
     const [current, setCurrent] = useState(targets[0]?.type)

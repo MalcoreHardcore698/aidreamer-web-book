@@ -1,5 +1,6 @@
 import React from 'react'
 import Toggler from '../ui/Toggler'
+import Column from '../ui/Column'
 import { faClock, faFire } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -26,6 +27,29 @@ export default () => {
                     { type: 'lol', value: <p>League of Legends</p> },
                     { type: 'apexlegend', value: <p>Apex Legend</p> },
                     { type: 'gwent', value: <p>Gwent</p> }
+                ]
+            }} />
+
+            <p className="book-paragraph">Combinate Hubs Toggler</p>
+            <Toggler options={{
+                type: 'auto',
+                targets: [
+                    { type: 'csgo', value: <Column center>
+                        <div className="icon"><FontAwesomeIcon icon={faFire} /></div>
+                        <p>CS:GO</p>
+                    </Column> },
+                    { type: 'valorant', value: <Column center>
+                        <div className="icon"><FontAwesomeIcon icon={faFire} /></div>
+                        <p>Valorant</p>
+                    </Column> },
+                    { type: 'lol', value: <Column center>
+                        <div className="icon"><FontAwesomeIcon icon={faFire} /></div>
+                        <p>League of Legend</p>
+                    </Column> },
+                    { type: 'gwent', value: <Column center>
+                        <div className="icon"><FontAwesomeIcon icon={faFire} /></div>
+                        <p>Gwent</p>
+                    </Column> },
                 ]
             }} />
         </React.Fragment>

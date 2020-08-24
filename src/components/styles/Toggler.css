@@ -8,6 +8,10 @@
     transition: all .15s ease;
 }
 
+.ui-toggler.auto {
+    height: auto;
+}
+
 .ui-toggler .toggle {
     position: relative;
     display: flex;
@@ -46,4 +50,20 @@
 
 .ui-toggler .toggle p {
     padding: 0 15px;
+}
+
+.ui-toggler .toggle .icon {
+    height: 48px;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.ui-toggler .toggle .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ui-toggler .toggle {
+    padding: 10px 0;
 }

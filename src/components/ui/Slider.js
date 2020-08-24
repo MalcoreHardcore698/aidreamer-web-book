@@ -1,54 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Slider, { Range } from 'rc-slider'
+import 'rc-slider/assets/index.css'
 import '../styles/Slider.css'
 
-export default ({ options }) => {
-    const {
-        type,
-        points,
-        state,
-        color,
-    } = options || {}
+export default ({ type, options }) => {
+    const [scalableSpan, setScalableSpan] = useState(false)
 
     const classes = [
         'ui-slider',
-        type, color,
-        state
+        (scalableSpan) ? 'scalable' : 'not'
     ]
 
-    const renderPoints = () => {
-        const pts = []
-        for (let key = 0; key < points; key++) {
-            pts.push(<span key={key} className="point"></span>)
-        }
-        return pts.map(pt => pt)
-    }
-
-    const handlerDragStart = (e) => {
-
-    }
-
-    const handlerDragMove = (e) => {
-        
-    }
-
-    const handlerDragEnd = (e) => {
-        
+    const handlerBeforeChange = (e) => {
+        setScalableSpan(true)
     }
 
     return (
         <div className={classes.join(' ')}>
-            <div className="scale"></div>
-            <div className="points">
-                {renderPoints()}
-            </div>
-            <div
-                className="toggle"
-                onDragStart={handlerDragStart}
-                onDragMove={handlerDragMove}
-                onDragEnd={handlerDragEnd}
-            >
-                <span></span>
-            </div>
+            {(type === 'range')
+                ? <Range onBeforeChange={handlerBeforeChange} {...options} />
+                : <Slider onBeforeChange={handlerBeforeChange} {...options} />
+            }
         </div>
     )
 }

@@ -10,6 +10,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "konva": "^7.0.5",
+    "rc-slider": "^9.3.1",
     "react": "^16.13.1",
     "react-code-blocks": "0.0.8",
     "react-dom": "^16.13.1",
