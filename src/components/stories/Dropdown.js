@@ -61,6 +61,7 @@ export default () => {
                             { id: 1, value: 'Item 2', checked: false },
                             { id: 2, value: 'Item 3', checked: false }
                         ],
+                        checked,
                         handler: setChecked
                     }} />
                 </Dropdown>

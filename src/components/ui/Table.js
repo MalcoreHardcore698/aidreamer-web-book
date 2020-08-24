@@ -23,8 +23,12 @@ import Search from './Search'
 import Message from './Message'
 import Dropdown from './Dropdown'
 import Checkbox from './Checkbox'
+import Radiobox from './Radiobox'
 import { getPage, getMaxPage } from '../../utils/functions'
 import '../styles/Table.css'
+
+const limitDefault = 10
+const limitList = [5, 10, 15, 20, 30, 40, 50]
 
 const Manage = ({ actions, dishands }) => {
     const state = useSelector(state => state)
@@ -43,15 +47,18 @@ const Manage = ({ actions, dishands }) => {
 }
 
 const Table = ({
+    max,
     name,
     gridable,
     empty="Данные отсутсвуют",
-    max,
-    limits,
+
     page,
-    headers,
-    setLimit,
     setPage,
+
+    limits,
+    setLimits,
+
+    headers,
     setHeaders
 }) => {
     const state = useSelector(state => state)
@@ -60,8 +67,9 @@ const Table = ({
         <div className={`data ${name}`}>
             <Descriptors
                 limits={limits}
+                setLimits={setLimits}
+
                 headers={headers}
-                setLimit={setLimit}
                 setHeaders={setHeaders}
             />
 
@@ -89,20 +97,19 @@ const Table = ({
     )
 }
 
-const Descriptor = ({
-    size,
-    type,
-    icon,
-    list,
-    styles,
-    compareList,
-    compareValue,
-    handler
-}) => {
+const Descriptor = (props) => {
+    const {
+        size,
+        type,
+        icon,
+        styles,
+        children
+    } = props
+
+    const Children = children
+
     const [dropdown, setDropdown] = useState(false)
-
-    if (!list || list.length === 0) return null
-
+    
     return (
         <Container clear sticky>
             <Button options={{
@@ -115,62 +122,68 @@ const Descriptor = ({
             </Button>
 
             <Dropdown options={{ type, styles, dropdown }}>
-                <Checkbox options={{
-                    list,
-                    compareList,
-                    compareValue,
-                    handler
-                }} />
+                {Children}
             </Dropdown>
         </Container>
     )
 }
 
 const Descriptors = ({
-    limits,
     headers,
-    setLimit,
-    setHeaders
+    setHeaders,
+
+    limits,
+    setLimits
 }) => {
     const state = useSelector(state => state)
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     const size = state.table.length
 
     const handlerVisible = (headers) => {
+        let checkedCount = headers.reduce((prev, curr) => (curr.checked) ? prev + 1 : prev, 0)
+        
+        if (checkedCount < 1) return headers
+
         setHeaders(headers)
 
-        /*
         dispatch(setDataTable(state.table.map(t =>
             ({
                 ...t,
-                data: t.data.map((d, i) => (d.header === headers[i].value)
-                    ? ({ ...d, visible: headers[i].checked })
-                    : ({ ...d })
-                )
+                data: t.data.map((c, i) => ({
+                    ...c,
+                    visible: headers[i].checked
+                }))
             })
         )))
-        */
     }
 
     return (
         <div className="descriptors">
             <Search />
-            {/*(limits) && <Descriptor
+
+            {(limits) && <Descriptor
                 size={size}
                 type="filter"
                 icon={faFilter}
-                list={limits}
                 styles={{ width: 96 }}
-                handler={setLimit}
-            />*/}
+            >
+                <Radiobox options={{
+                    list: limits,
+                    handler: setLimits
+                }} />
+            </Descriptor>}
+
             {(headers) && <Descriptor
                 size={size}
                 type="visible"
                 icon={faEye}
-                list={headers}
-                handler={handlerVisible}
-            />}
+            >
+                <Checkbox options={{
+                    list: headers,
+                    handler: handlerVisible
+                }} />
+            </Descriptor>}
         </div>
     )
 }
@@ -343,16 +356,11 @@ export default ({ options }) => {
 
     const [headers, setHeaders] = useState([])
 
-    const limits = [
-        { id: 0, value: 5, checked: false },
-        { id: 1, value: 10, checked: true },
-        { id: 2, value: 15, checked: false },
-        { id: 3, value: 20, checked: false },
-        { id: 4, value: 30, checked: false },
-        { id: 5, value: 40, checked: false },
-        { id: 6, value: 50, checked: false }
-    ]
-    const [limit, setLimit] = useState(10)
+    const [limits, setLimits] = useState(limitList.map((l, i) => ({
+        id: i,
+        value: l,
+        checked: (limitDefault === l)
+    })))
 
     const {
         name='default',
@@ -365,6 +373,7 @@ export default ({ options }) => {
     ]
 
     useEffect(() => {
+        const limit = limits?.find(l => l.checked)?.value || limitDefault
         const content = getPage(data, limit, page)
         const table = content.map((trace, i) => ({
             id: i,
@@ -384,7 +393,7 @@ export default ({ options }) => {
         }))
 
         dispatch(setDataTable(table))
-    }, [data, limit, page, dispatch])
+    }, [data, limits, page, dispatch])
 
     useEffect(() => {
         const checked = state.table.filter(t => t.checked)
@@ -407,16 +416,18 @@ export default ({ options }) => {
             <Manage
                 actions={actions}
                 dishands={dishands}
-                setLimit={setLimit}
             />
             <Table
                 name={name}
+
                 page={page}
-                limits={limits}
-                headers={headers}
-                max={getMaxPage(data, limit)}
                 setPage={setPage}
-                setLimit={setLimit}
+                max={getMaxPage(data, limits?.find(l => l.checked)?.value || limitDefault)}
+
+                limits={limits}
+                setLimits={setLimits}
+
+                headers={headers}
                 setHeaders={setHeaders}
             />
         </div>

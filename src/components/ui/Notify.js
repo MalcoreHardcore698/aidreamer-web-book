@@ -32,11 +32,9 @@ export default ({ options }) => {
         switch (type) {
             case 'success':
                 return faCheck
-            
             case 'warning':
                 return faExclamationTriangle
-                    
-            case 'error':
+            default:
                 return faTimes
         }
     }

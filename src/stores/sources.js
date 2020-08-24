@@ -186,8 +186,17 @@ options(
 </Container>`
     },
     slider: {
-        default: `function Slider()`,
-        example: ``
+        default: `function Slider(Object options)
+options(
+    String type,
+    Number points,
+    String state,
+    String color
+)`,
+        example: `<Slider options={{
+    points: 5,
+    state: 'inactive'
+}} />`
     },
     toggler: {
         default: `function Toggler(Object options)
