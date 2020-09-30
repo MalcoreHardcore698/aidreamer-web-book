@@ -2,7 +2,6 @@
 	display: grid;
 	grid-template-columns: 48px 1fr;
 	grid-template-rows: 48px;
-	grid-gap: 10px;
 	align-content: center;
 	width: 320px;
 }
@@ -20,7 +19,7 @@
 
     background: white;
     box-shadow: var(--bx-main);
-    border-radius: var(--br-main);
+    border-radius: var(--br-main) 0 0 var(--br-main);
 	border: var(--border-main);
 	
 	overflow: hidden;
@@ -40,7 +39,6 @@
 }
 
 .ui-notify.admin {
-	background: white;
 	border-radius: var(--br-main);
 	overflow: hidden;
 }

@@ -12,7 +12,7 @@ import {
   Stage, Layer, Group, Rect, Text
 } from 'react-konva'
 import '../styles/Grid.css'
-import Match from './Match'
+import Match from './GridMatch'
 
 const width = window.innerWidth
 const height = window.innerHeight

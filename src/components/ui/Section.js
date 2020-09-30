@@ -8,7 +8,6 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter } from '@fortawesome/free-solid-svg-icons'
-import Message from './Message'
 import Button from './Button'
 import Search from './Search'
 import Toggler from './Toggler'
@@ -41,6 +40,8 @@ export default (props) => {
 
     const {
         type,
+        data=null,
+        subData=null,
         name='default',
         title=null,
         subtitle=null,
@@ -72,7 +73,7 @@ export default (props) => {
                 </div>
             )}
             <div className="content">
-                {<Children filter={currentFilter} /> || <Message text="No Content" padding />}
+                <Children data={data} subData={subData} filter={currentFilter} />
             </div>
         </section>
     )

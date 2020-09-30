@@ -8,7 +8,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useWindowSize } from '../../hooks/window.size.hook'
 import Row from './Row'
 import Container from './Container'
-import Input from './Input'
+import InputHidden from './InputHidden'
 import Button from './Button'
 import Message from './Message'
 import Dropdown from './Dropdown'
@@ -229,9 +229,7 @@ export default ({ all, options }) => {
                 : null
             )}
             <div ref={handleRef} className="handle"></div>
-            <Input options={{
-                name, inputRef: register
-            }} hidden />
+            <InputHidden name={name} inputRef={register} />
             {(!targets || targets.length === 0) && <Message text="No Content" />}
         </div>
     )

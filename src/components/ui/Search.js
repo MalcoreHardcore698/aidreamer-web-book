@@ -39,7 +39,7 @@ export default ({ options, filter }) => {
     return (
         (filter) ? <Row type="flex search">
             <Search options={options} />
-            <Button options={{ type: 'icon' }}>
+            <Button options={{ state: 'inactive icon' }}>
                 <FontAwesomeIcon icon={faFilter} />
             </Button>
         </Row> : <Search options={options} />

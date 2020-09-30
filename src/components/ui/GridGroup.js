@@ -6,7 +6,7 @@
 **/
 
 import React from 'react'
-import Participant from './Participant'
+import Participant from './GridParticipant'
 
 export default ({ participants }) => {
     return (

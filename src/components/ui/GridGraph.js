@@ -6,7 +6,7 @@
 **/
 
 import React from 'react'
-import Match from './Match'
+import Match from './GridMatch'
 
 export default ({ input='empty', output='empty', participants, alone }) => {
     return (

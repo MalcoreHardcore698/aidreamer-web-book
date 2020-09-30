@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { Group, Rect, Line } from 'react-konva'
-import Participant from './Participant'
+import Participant from './GridParticipant'
 
 export default ({ match, x=0, y=0, top, bottom, extension, rupture }) => {
     return (

@@ -36,13 +36,13 @@ export default (props) => {
     const Children = props.children
 
     const {
-        type,
+        type=null,
         capacious=true,
-        editable,
+        editable=false,
         manageOffset=false,
-        userBar,
-        statusBar,
-        classNames,
+        userBar=null,
+        statusBar=null,
+        classNames='',
         handler=() => {},
         handlerView=() => {},
         handlerEdit=() => {},
@@ -103,7 +103,7 @@ export default (props) => {
         
         return (
             <div className={`status-bar${(!statusBar.body && (type === 'ARTICLE')) ? ' no-body' : ''}`}>
-                {statusBar.options.map((item, key) => (item) &&
+                {(statusBar?.options || []).map((item, key) => (item) &&
                     <p key={key}>
                         <span className="lite">{item.lite}</span>
                         <span className="dark">{item.dark}</span>

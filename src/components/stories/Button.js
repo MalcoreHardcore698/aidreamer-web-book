@@ -13,26 +13,38 @@ export default () => {
 
             <p className="book-paragraph">Flat Button</p>
             <Row>
-                <Button options={{ type: 'flat' }}>
+                <Button options={{ state: 'active flat' }}>
                     <p>See All</p>
                 </Button>
-                <Button options={{ type: 'flat', state: 'active' }}>
+                <Button options={{ state: 'inactive flat' }}>
                     <p>See All</p>
                 </Button>
-                <Button options={{ type: 'flat', state: 'disabled' }}>
+                <Button options={{ state: 'inactive disabled' }}>
+                    <p>See All</p>
+                </Button>
+                <Button options={{ state: 'disabled flat' }}>
+                    <p>See All</p>
+                </Button>
+                <Button options={{ state: 'flat' }}>
                     <p>See All</p>
                 </Button>
             </Row>
 
             <p className="book-paragraph">Icon Button</p>
             <Row>
-                <Button options={{ type: 'icon' }}>
+                <Button options={{ state: 'active icon' }}>
                     <FontAwesomeIcon icon={faFire} />
                 </Button>
-                <Button options={{ type: 'icon', state: 'active' }}>
+                <Button options={{ state: 'inactive icon' }}>
                     <FontAwesomeIcon icon={faFire} />
                 </Button>
-                <Button options={{ type: 'icon', state: 'disabled' }}>
+                <Button options={{ state: 'inactive disabled icon' }}>
+                    <FontAwesomeIcon icon={faFire} />
+                </Button>
+                <Button options={{ state: 'disabled icon' }}>
+                    <FontAwesomeIcon icon={faFire} />
+                </Button>
+                <Button options={{ state: 'icon' }}>
                     <FontAwesomeIcon icon={faFire} />
                 </Button>
             </Row>
