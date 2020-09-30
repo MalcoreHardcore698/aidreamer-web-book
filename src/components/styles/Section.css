@@ -1,7 +1,6 @@
 .ui-section {
     display: flex;
     flex-direction: column;
-    padding: var(--padding-content) 0;
 }
 
 .ui-section .headline {
@@ -60,17 +59,44 @@
 }
 
 .ui-section > .content {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     grid-gap: var(--padding-content);
 }
 
-.ui-section > .content > .ui-entry {
-    flex-grow: 1;
+.ui-section > .content > .ui-skeleton {
     flex-basis: 320px;
 }
 
 .ui-section .ui-message {
     padding: 25px;
-    flex-grow: 1;
+    grid-column: 1 / 3;
+}
+
+.ui-section.chats {
+    height: calc(100vh - 100px);
+}
+
+.ui-section.chats > .content {
+    height: 100%;
+}
+
+.ui-section.chats > .ui-message p {
+    height: 100%;
+}
+
+.profile .ui-section .content > .ui-button {
+    width: 100%;
+    grid-column: 1 / 3;
+}
+
+.ui-section .content > .ui-unit {
+    grid-column: 1 / 3;
+}
+
+@media only screen and (max-width: 998px) {
+    .ui-section .content .grid {
+        grid-template-columns: 1fr !important;
+    }
 }

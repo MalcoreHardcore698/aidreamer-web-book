@@ -1,6 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import Button from './Button'
 import '../styles/Navigation.css'
 
 const Block = ({ children }) =>
@@ -8,34 +6,30 @@ const Block = ({ children }) =>
 
 export default ({ options }) => {
     const {
-        links,
-        buttons,
+        left,
+        right,
+        dashboard,
         axis
     } = options
 
     const classes = [
         'ui-navigation',
+        (dashboard) ? 'dashboard' : '',
         axis
     ]
 
-    const renderLinks = () => {
-        return links.map((link, key) =>
-            <NavLink key={key} to={link.path}>
-                {link.component}
-            </NavLink>)
-    }
-
-    const renderButtons = () => {
-        return buttons.map((button, key) =>
-            <Button key={key} options={button.options}>
-                {button.component}
-            </Button>)
+    const render = list => {
+        return list.map((item, key) =>
+            <React.Fragment key={key}>
+                {item}
+            </React.Fragment>
+        )
     }
 
     return (
         <div className={classes.join(' ')}>
-            <Block>{renderLinks()}</Block>
-            <Block>{renderButtons()}</Block>
+            <Block>{render(left)}</Block>
+            <Block>{render(right)}</Block>
         </div>
     )
 }

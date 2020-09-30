@@ -4,11 +4,21 @@
     grid-gap: 10px;
 }
 
+.ui-checkbox.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+}
+
 .ui-checkbox li {
     display: flex;
     align-items: center;
     padding: 0;
+
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
     color: var(--color-graylite);
+    
     cursor: pointer;
     transition: var(--transition);
 }
@@ -50,7 +60,7 @@
 }
 
 .ui-checkbox li.checked {
-    color: var(--color-text);
+    color: var(--color-accent);
 }
 
 .ui-checkbox li.sortable {

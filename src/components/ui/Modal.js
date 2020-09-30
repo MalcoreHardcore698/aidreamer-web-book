@@ -12,9 +12,11 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import '../styles/Modal.css'
 import Transition from './Transition'
 import Button from './Button'
+import '../styles/Modal.css'
+
+const DURATION = 100
 
 function getPath(navigator) {
     if (!navigator || navigator.length === 0)
@@ -39,10 +41,11 @@ const Switch = (props) => {
     return Child
 }
 
-const Route = ({ component, close, jump }) => {
+const Route = ({ component, close, back, jump }) => {
     const Compoent = component
     return <Compoent
         close={close}
+        back={back}
         jump={jump}
     />
 }
@@ -53,15 +56,19 @@ export default ({ options }) => {
     const [animation, setAnimation] = useState(null)
 
     const {
+        type,
         title,
         home,
         routes,
-        hideModal,
+        center,
+        hideModal=() => {},
         closeByBackground=true
     } = options
 
     const classes = [
-        'ui-modal'
+        'ui-modal',
+        (center) ? 'center' : '',
+        type
     ]
 
     const transitions = {
@@ -70,12 +77,12 @@ export default ({ options }) => {
             animation: 'fade',
             handlerEnter: () => setContent(true),
             handlerExit: () => setContent(false),
-            duration: 150
+            duration: DURATION
         },
         swing: {
             showContent: (content),
             animation: 'swing',
-            duration: 150
+            duration: DURATION
         }
     }
 
@@ -96,7 +103,7 @@ export default ({ options }) => {
                 ...navigator.filter((e, i) => (i !== (navigator.length - 1)))
             ])
             setAnimation('slideInLeft')
-        }, 150)
+        }, DURATION)
     }
     const handlerJump = (path) => {
         setAnimation('slideOutLeft')
@@ -106,7 +113,7 @@ export default ({ options }) => {
                 path
             ])
             setAnimation('slideInRight')
-        }, 150)
+        }, DURATION)
     }
     const handlerClose = () => {
         setContent(false)
@@ -115,7 +122,7 @@ export default ({ options }) => {
         setTimeout(() => {
             setNavigator(['/'])
             hideModal()
-        }, 100)
+        }, DURATION)
     }
 
     return (
@@ -123,11 +130,11 @@ export default ({ options }) => {
             <div className={classes.join(' ')}>
                 <div
                     className={`background${(!closeByBackground) ? ' clear' : ''}`}
-                    onClick={(closeByBackground) && handlerClose}
+                    onClick={(closeByBackground) ? handlerClose : () => {}}
                 ></div>
 
                 <Transition {...transitions.swing}>
-                    <div className={`wrapper animate${(animation) ? ` ${animation}` : ''}`}>
+                    <div id='scroller' className={`wrapper animate${(animation) ? ` ${animation}` : ''}`}>
                         <div className="headline">
                             {(navigator.length > 1) && <Button options={{
                                 state: 'icon',
@@ -142,7 +149,7 @@ export default ({ options }) => {
                         {(home && !routes) ? home
                         : <Switch path={getPath(navigator)}>
                             {routes?.map((props, key) =>
-                                <Route key={key} {...props} close={handlerClose} jump={handlerJump} />
+                                <Route key={key} {...props} close={handlerClose} back={handlerBack} jump={handlerJump} />
                             )}
                         </Switch>}
                     </div>

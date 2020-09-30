@@ -3,12 +3,11 @@
     top: 50px;
     right: 0;
     z-index: var(--z-twenty);
-    border: var(--border-main);
     border-radius: var(--br-main);
-    box-shadow: var(--bs-main);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .095);
     background: white;
-    padding: 10px;
     width: max-content;
+    min-width: 180px;
 }
 
 .ui-dropdown.zoomIn {

@@ -1,17 +1,22 @@
 .ui-modal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     position: fixed;
     top: 0;
     left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 100%;
-    z-index: var(--z-ninetynine);
+    z-index: var(--z-override);
+    overflow: auto;
+}
+
+.ui-modal.center {
+    padding-block-start: 75px;
 }
 
 .ui-modal .background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -28,13 +33,38 @@
 
 .ui-modal .wrapper {
     position: relative;
+    top: 15%;
     left: 0;
     right: 0;
+    min-width: 480px;
+    max-width: 80%;
+    width: min-content;
+    margin-block-end: 150px;
     background: white;
     border: var(--border-main);
     border-radius: var(--br-main);
     box-shadow: var(--bs-main);
     z-index: var(--z-one-hundred-one);
+}
+
+.ui-modal.center .wrapper {
+    top: 0;
+}
+
+.ui-modal .wrapper form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-content);
+    grid-gap: 15px;
+}
+
+.ui-modal .wrapper .content > p:not(.tag) {
+    margin-block-start: 10px;
+}
+
+.ui-modal .wrapper .wide {
+    width: 768px;
 }
 
 .ui-modal .wrapper.slideOutLeft {
@@ -54,16 +84,25 @@
 }
 
 .ui-modal .wrapper .headline {
+    display: flex;
     position: relative;
     border-bottom: var(--border-main);
     line-height: 1;
 }
 
-.ui-modal .wrapper .headline button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 5px;
+.ui-modal .wrapper .headline .react-ripples {
+    position: relative;
+    left: 50px;
+    margin: 5px 0 5px -45px;
+    min-width: 45px;
+}
+
+.ui-modal .wrapper .ui-message {
+    text-align: center;
+}
+
+.ui-modal .wrapper .ui-row .react-ripples {
+    flex-grow: 1;
 }
 
 .ui-modal .wrapper .headline h1 {
@@ -71,7 +110,30 @@
     color: var(--color-text);
     text-align: center;
     margin: 0;
-    padding: 15px 85px;
+    padding: 15px;
+    width: 100%;
+}
+
+.ui-modal .wrapper .ui-entry .content {
+    cursor: default;
+}
+
+.ui-modal .wrapper .ui-entry .content:hover {
+    opacity: 1;
+}
+
+.ui-modal .wrapper .ui-alert,
+.ui-modal .wrapper .ui-notify {
+    width: auto;
+}
+
+.ui-modal .wrapper .ui-toggler {
+    height: var(--height-main);
+    flex-wrap: initial;
+}
+
+.ui-modal .wrapper .ui-toggler .toggle.active .ui-row .ui-avatar {
+    filter: brightness(5);
 }
 
 @keyframes slideOutLeft {
@@ -115,5 +177,24 @@
     to {
         left: 0;
         opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 998px) {
+    .ui-modal .wrapper {
+        top: 75px;
+        max-width: 100%;
+        min-width: auto;
+        width: 80%;
+    }
+
+    .ui-modal .wrapper .wide {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .ui-modal .wrapper {
+        width: calc(100% - 30px);
     }
 }

@@ -7,29 +7,64 @@
 
 import React from 'react'
 import Ripples from 'react-ripples'
+import { Link } from 'react-router-dom'
 import '../styles/Button.css'
 
-const Button = ({ child, classes, disabled, handler }) => {
+const Button = ({ type, child, classes, disabled, path, handler }) => {
     const handlerClick = async (e) => {
         e.preventDefault()
         await handler(e)
     }
 
+    if (type === 'link') {
+        return (
+            <Link
+                to={path}
+                className={classes.join(' ')}
+                disabled={disabled}
+                onClick={(handler) && handlerClick}
+            >
+
+            </Link>
+        )
+    }
+
     return (
         <button
+            type={type}
             className={classes.join(' ')}
             disabled={disabled}
-            onClick={handlerClick}
+            onClick={(handler) && handlerClick}
         >
             {child}
         </button>
     )
 }
 
-const Ripple = ({ child, classes, handler }) => {
+const Ripple = ({ type, child, classes, disabled, path, handler }) => {
+    if (handler)
+        return (
+            <Ripples color="#afbdc4" during={1000}>
+                <Button
+                    type={type}
+                    path={path}
+                    child={child}
+                    classes={classes}
+                    disabled={disabled}
+                    handler={handler}
+                />
+            </Ripples>
+        )
+
     return (
-        <Ripples color="#f3f3f3" during={1000}>
-            <Button child={child} classes={classes} handler={handler} />
+        <Ripples color="#afbdc4" during={1000}>
+            <Button
+                type={type}
+                path={path}
+                child={child}
+                classes={classes}
+                disabled={disabled}
+            />
         </Ripples>
     )
 }
@@ -40,23 +75,26 @@ export default (props) => {
     const {
         type, state,
         classNames, disabled,
-        handler=(e) => { e.preventDefault() },
+        handler, path
     } = props.options || {}
 
     const classes = [
         'ui-button',
         classNames,
-        type, state
+        state
     ]
 
     const options = {
+        type, path,
         child: Children,
-        classes, handler,
         disabled
     }
 
-    if (state === 'active')
-        return <Ripple {...options} />
-
-    return <Button {...options} />
+    return (
+        <Ripple
+            {...options}
+            classes={classes}
+            handler={handler}
+        />
+    )
 }

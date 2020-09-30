@@ -10,16 +10,19 @@ import Button from './Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter } from '@fortawesome/free-solid-svg-icons'
 import Row from './Row'
+import '../styles/Search.css'
 
 const Search = ({ options }) => {
     const {
         type="text",
         placeholder='Search',
+        classNames,
         onChange=() => {}
     } = options || {}
 
     const classes = [
-        'ui-search'
+        'ui-search',
+        classNames
     ]
 
     return (
@@ -34,7 +37,7 @@ const Search = ({ options }) => {
 
 export default ({ options, filter }) => {
     return (
-        (filter) ? <Row>
+        (filter) ? <Row type="flex search">
             <Search options={options} />
             <Button options={{ type: 'icon' }}>
                 <FontAwesomeIcon icon={faFilter} />
