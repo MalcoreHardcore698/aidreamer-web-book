@@ -2,25 +2,49 @@ import React from 'react'
 import Row from './Row'
 import Query from './Query'
 import Avatar from './Avatar'
+import Message from './Message'
 import Toggler from './Toggler'
 
-export default ({ name='', query={}, initialState={}, initialOptions=[], initialSlicedFactor=4, onChange=()=>{} }) => (
-    <Query query={query.value} {...query.props}>
-        {({ data }) => (
-            <Toggler all options={{
-                setValue: (_, target) => onChange(target),
-                initialState, name,
-                initialSlicedFactor,
-                initialOptions: (data.allHubs || initialOptions).map(hub => ({
-                    value: hub.id,
-                    label: (
-                        <Row key={hub.id}>
-                            <Avatar avatar={{ path: hub.icon.path }} properties={['circle']} />
-                            <p>{hub.title}</p>
-                        </Row>
-                    )
-                }))
-            }} />
-        )}
-    </Query>
+const Container = ({ data, options }) => (
+    <Toggler all options={{
+        ...options,
+        initialOptions: (data || (options?.initialOptions) || []).map(option => ({
+            value: option.id,
+            label: (
+                <Row key={option.id}>
+                    <Avatar avatar={{ path: option.icon.path }} properties={['circle']} />
+                    <p>{option.title}</p>
+                </Row>
+            )
+        }))
+    }} />
 )
+
+export default ({ query, subscription, options }) => {
+    if (!query)
+        return <Message text="Invalid passed props" padding />
+
+    return (
+        <Query query={query.value} {...query.props}>
+            {({ data }) => (
+                (subscription) ? (
+                    <Subscription
+                        query={subscription.value}
+                        variables={subscription.variables}
+                        {...subscription.props}
+                    >
+                        {({ subData }) => <Container
+                            data={getFormattedData(subData || data || [])}
+                            options={options}
+                        />}
+                    </Subscription>
+                ) : (
+                    <Container
+                        data={getFormattedData(data || [])}
+                        options={options}
+                    />
+                )
+            )}
+        </Query>
+    )
+}

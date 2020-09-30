@@ -11,8 +11,8 @@
 
 import React from 'react'
 import Query from './Message'
-import Section from './Section'
 import Subscription from './Subscription'
+import Section from './Section'
 
 export default (props) => {
     const query = props.query

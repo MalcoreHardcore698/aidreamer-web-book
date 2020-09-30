@@ -22,6 +22,14 @@ export function getMaxPage(data, limit) {
     return (maxPage - 1)
 }
 
+export function getFormattedData(data) {
+    return data[Object.keys(data)[0]].map((item, index) => ({
+        id: (item.id || item._id || index),
+        value: (item.name || item.title || 'Untitled'),
+        checked: false
+    }))
+}
+
 export function setCookie(name, value, expiresDays=30) {
     const date = new Date()
     date.setTime(date.getTime() + (expiresDays * 24*60*60*1000))

@@ -8,39 +8,49 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import InputHidden from './InputHidden'
 import '../styles/Checkbox.css'
 
 export default ({ options }) => {
     const {
         type,
-        state=[],
+        name,
         list=[],
-        handler
+        inputRef,
+        classNames,
+        onChange
     } = options || {}
 
     const classes = [
         'ui-checkbox',
-        type
+        classNames, type
     ]
 
+    const [checked, setChecked] = useState([])
+
     const handlerChecked = (item) => {
-        const founded = state.find(el => el.id === item.id)
-        handler((founded)
-            ? state.filter(el => el.id !== item.id)
-            : ([ ...state, item ])
-        )
+        const founded = checked.find(el => el.id === item.id)
+        const result = (founded)
+            ? checked.filter(el => el !== item)
+            : ([ ...checked, item ])
+
+        if (onChange) onChange(result)
+        setChecked(result)
     }
 
     return (
-        <ul className={classes.join(' ')}>
-            {list.map((item, key) =>
-                <li key={key} onClick={() => handlerChecked(item)} className={(state.find(el => el.id === item.id)) ? 'checked' : 'empty'}>
-                    <div className="checkmark">
-                        <FontAwesomeIcon icon={faCheck} />
-                    </div>
-                    <p>{item.title}</p>
-                </li>    
-            )}
-        </ul>
+        <div className={classes.join(' ')}>
+            <ul className="list">
+                {list.map((item, key) =>
+                    <li key={key} onClick={() => handlerChecked(item)} className={(checked.find(el => el.id === item.id)) ? 'checked' : 'empty'}>
+                        <div className="checkmark">
+                            <FontAwesomeIcon icon={faCheck} />
+                        </div>
+                        <p>{item.title}</p>
+                    </li>    
+                )}
+            </ul>
+            <InputHidden name={name} inputRef={inputRef} />
+        </div>
     )
 }

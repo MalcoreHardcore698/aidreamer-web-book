@@ -6,40 +6,49 @@
 **/
 
 import React from 'react'
+import InputHidden from './InputHidden'
 import '../styles/List.css'
 
 export default (props) => {
     const Children = props.children
 
     const {
-        list,
         type,
-        state={},
-        handler,
-        handlerItem,
+        name,
+        list,
+        inputRef,
+        onChangeItem,
+        onChangeList,
     } = props.options || {}
 
     const classes = [
         'ui-list', type,
-        (handler) ? ' clickable' : ''
-    ]
+        (onChangeList) ? ' clickable' : ''
+    ].filter(c => c)
+
+    const [checked, setChecked] = useState(null)
+
+    const handlerChecked = (item) => {
+        if (onChangeItem) onChangeItem(item)
+        setChecked(item)
+    }
 
     return (
         <div
             className={classes.join(' ')}
-            onClick={() => (handler) && handler()}
+            onClick={() => (onChangeList) && onChangeList()}
         >
             {list.map((item, key) => (
                 <div
                     key={key}
-                    className={`ui-item${
-                        ((state.id === item.id) || item._condition) ? ' checked' : ''
-                    }`}
-                    onClick={() => (handlerItem) ? handlerItem(item) : null}
+                    className={`ui-item${(checked === item) ? ' checked' : ''}`}
+                    onClick={() => handlerChecked(item)}
                 >
                     <Children item={item} />
                 </div>
             ))}
+
+            <InputHidden name={name} inputRef={inputRef} />
         </div>
     )
 }

@@ -1,4 +1,4 @@
-.ui-radiobox li {
+.ui-radiobox .list li {
     display: flex;
     align-items: center;
     padding: 5px 15px 5px 0;
@@ -7,7 +7,7 @@
     transition: var(--transition);
 }
 
-.ui-radiobox li .checkmark {
+.ui-radiobox .list li .checkmark {
     display: flex;
     width: 18px;
     height: 18px;
@@ -19,11 +19,11 @@
     transition: var(--transition);
 }
 
-.ui-radiobox li:hover {
+.ui-radiobox .list li:hover {
     color: var(--color-accent);
 }
 
-.ui-radiobox li .checkmark {
+.ui-radiobox .list li .checkmark {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,26 +32,26 @@
     transition: var(--transition);
 }
 
-.ui-radiobox li:hover .checkmark {
+.ui-radiobox .list li:hover .checkmark {
     border: 1px solid var(--color-accent);
 }
 
-.ui-radiobox li.checked .checkmark {
+.ui-radiobox .list li.checked .checkmark {
     background: var(--color-accent);
     border: 1px solid var(--color-accent);
 }
 
-.ui-radiobox li.checked .checkmark span {
+.ui-radiobox .list li.checked .checkmark span {
     background: white;
     width: 8px;
     height: 8px;
     border-radius: 50%;
 }
 
-.ui-radiobox li.checked {
+.ui-radiobox .list li.checked {
     color: var(--color-text);
 }
 
-.ui-radiobox li.sortable {
+.ui-radiobox .list li.sortable {
     right: 40px;
 }

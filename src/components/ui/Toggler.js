@@ -229,7 +229,9 @@ export default ({ all, options }) => {
                 : null
             )}
             <div ref={handleRef} className="handle"></div>
+            
             <InputHidden name={name} inputRef={register} />
+
             {(!targets || targets.length === 0) && <Message text="No Content" />}
         </div>
     )

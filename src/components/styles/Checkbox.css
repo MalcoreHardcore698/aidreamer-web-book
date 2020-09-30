@@ -1,15 +1,15 @@
-.ui-checkbox {
+.ui-checkbox .list {
     display: flex;
     flex-direction: column;
     grid-gap: 10px;
 }
 
-.ui-checkbox.grid {
+.ui-checkbox.grid .list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
 }
 
-.ui-checkbox li {
+.ui-checkbox .list li {
     display: flex;
     align-items: center;
     padding: 0;
@@ -23,7 +23,7 @@
     transition: var(--transition);
 }
 
-.ui-checkbox li .checkmark {
+.ui-checkbox .list li .checkmark {
     display: flex;
     width: 18px;
     min-width: 18px;
@@ -36,11 +36,11 @@
     transition: var(--transition);
 }
 
-.ui-checkbox li:hover {
+.ui-checkbox .list li:hover {
     color: var(--color-accent);
 }
 
-.ui-checkbox li .checkmark {
+.ui-checkbox .list li .checkmark {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,20 +49,20 @@
     transition: var(--transition);
 }
 
-.ui-checkbox li:hover .checkmark {
+.ui-checkbox .list li:hover .checkmark {
     border: 1px solid var(--color-accent);
 }
 
-.ui-checkbox li.checked .checkmark {
+.ui-checkbox .list li.checked .checkmark {
     background: var(--color-accent);
     color: white;
     border: 1px solid var(--color-accent);
 }
 
-.ui-checkbox li.checked {
+.ui-checkbox .list li.checked {
     color: var(--color-accent);
 }
 
-.ui-checkbox li.sortable {
+.ui-checkbox .list li.sortable {
     right: 40px;
 }
