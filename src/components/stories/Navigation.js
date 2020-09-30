@@ -16,7 +16,7 @@ const links = [
     },
     {
         path: '/',
-        component: <img src={ImageLogo} alt="Logo" />
+        component: ImageLogo
     },
     {
         path: '/navigator',

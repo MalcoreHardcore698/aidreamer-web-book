@@ -35,6 +35,9 @@
     margin-top: -1px;
 }
 
+.ui-slider .rc-slider-disabled,
+.ui-slider .rc-slider-disabled .rc-slider-dot,
+.ui-slider .rc-slider-disabled .rc-slider-handle-dragging,
 .ui-slider .rc-slider-disabled .rc-slider-handle:hover {
     cursor: default;
 }
@@ -83,11 +86,12 @@
     background: var(--color-graylite);
     border-color: var(--color-body-background);
     box-shadow: none;
-    margin-top: -4px;
+    bottom: -1px;
 }
 
 
 .ui-slider .rc-slider-dot.rc-slider-dot-active {
     background: var(--color-accent);
     border-color: var(--color-accent);
+    bottom: -2px;
 }

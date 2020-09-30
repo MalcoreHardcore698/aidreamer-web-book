@@ -290,11 +290,11 @@ const Cell = ({ cell, iter }) => {
             {(cell.type === 'color') &&
                 <span style={{ background: cell.value || 'black' }}></span>}
             {(cell.type === 'img') &&
-                <img src={`http://localhost:5000${cell.value.replace('./', '/')}`} alt={cell.value} />}
+                <img src={`${api}${cell.value.replace('./', '/')}`} alt={cell.value} />}
             {(cell.type === 'icon') &&
-                <img className="icon" src={`http://localhost:5000${cell.value.replace('./', '/')}`} alt={cell.value} />}
+                <img className="icon" src={`${api}${cell.value.replace('./', '/')}`} alt={cell.value} />}
             {(cell.type === 'hub') &&
-                <img className="hub" src={`http://localhost:5000${cell.value.replace('./', '/')}`} alt={cell.value} />}
+                <img className="hub" src={`${api}${cell.value.replace('./', '/')}`} alt={cell.value} />}
         </div>
     )
 }
