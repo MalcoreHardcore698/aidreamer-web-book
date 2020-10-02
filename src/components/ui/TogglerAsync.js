@@ -1,9 +1,11 @@
 import React from 'react'
 import Row from './Row'
 import Query from './Query'
+import Subscription from './Subscription'
 import Avatar from './Avatar'
 import Message from './Message'
 import Toggler from './Toggler'
+import { getFormattedData } from '../../utils/functions'
 
 const Container = ({ data, options }) => (
     <Toggler all options={{

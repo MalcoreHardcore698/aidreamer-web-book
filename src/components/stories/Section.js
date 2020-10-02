@@ -9,19 +9,17 @@ import ImageAvatar from '../../assets/images/avatar.png'
 import ImageArticle from '../../assets/images/article.png'
 import ImageTourPoster from '../../assets/images/poster.png'
 
-import articles from '../../stores/articles'
-import offers from '../../stores/offers'
-import tours from '../../stores/tours'
-
 import '../styles/Section.css'
 
-export default () => {
-    const targets = [
-        { type: 'all', value: <p>All</p> },
-        { type: 'last', value: <FontAwesomeIcon icon={faClock} /> },
-        { type: 'popular', value: <FontAwesomeIcon icon={faFire} /> }
-    ]
+const posts = []
 
+const targets = [
+    { type: 'all', value: <p>All</p> },
+    { type: 'last', value: <FontAwesomeIcon icon={faClock} /> },
+    { type: 'popular', value: <FontAwesomeIcon icon={faFire} /> }
+]
+
+export default () => {
     return (
         <React.Fragment>
             <h1 className="book-title">Section</h1>
@@ -39,14 +37,14 @@ export default () => {
                 <Section options={{
                     name: 'news',
                     title: 'News',
-                    subtitle: articles.length,
+                    subtitle: posts.length,
                     targets
                 }}>
-                    {articles.map((article, key) =>
+                    {posts.map((post, key) =>
                         <Entry key={key} options={{
                             capacious: false,
                             userBar: {
-                                name: article.author,
+                                name: post.author,
                                 status: 'online',
                                 avatar: ImageAvatar
                             },
@@ -66,10 +64,10 @@ export default () => {
                 <Section options={{
                     name: 'user-offers',
                     title: 'My Offers',
-                    subtitle: offers.length,
+                    subtitle: posts.length,
                     targets
                 }}>
-                    {offers.map((offer, key) =>
+                    {posts.map((post, key) =>
                         <Entry key={key} options={{
                             editable: true,
                             capacious: false,
@@ -77,7 +75,7 @@ export default () => {
                                 { lite: 'May, 16', dark: '14:15 AM' }
                             ]
                         }}>
-                            <h2 className="title">{offer.title}</h2>
+                            <h2 className="title">{post.title}</h2>
                         </Entry>    
                     )}
                 </Section>
@@ -86,25 +84,25 @@ export default () => {
             <Section options={{
                 name: 'user-tours',
                 title: 'My Tours',
-                subtitle: tours.length,
+                subtitle: posts.length,
                 filter: true,
                 targets
             }}>
-                {tours.map((tour, key) =>
+                {posts.map((post, key) =>
                     <Entry key={key} options={{
                         editable: true,
                         capacious: false,
                         manageOffset: true,
                         statusBar: [
-                            { lite: 'Participants', dark: tour.participants },
-                            { lite: 'Date', dark: tour.date },
-                            { lite: 'Prize Pool', dark: tour.prize },
-                            { lite: 'Location', dark: tour.location }
+                            { lite: 'Participants', dark: post.participants },
+                            { lite: 'Date', dark: post.date },
+                            { lite: 'Prize Pool', dark: post.prize },
+                            { lite: 'Location', dark: post.location }
                         ]
                     }}>
                         <img className="image" src={ImageTourPoster} alt="Tour" />
                         <h2 className="title separeted">
-                            <span>{tour.title}</span><span>{tour.type}</span>
+                            <span>{post.title}</span><span>{post.type}</span>
                         </h2>
                     </Entry>  
                 )}

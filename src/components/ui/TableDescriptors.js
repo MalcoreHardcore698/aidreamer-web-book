@@ -15,7 +15,7 @@ export default ({
     limits,
     setLimits
 }) => {
-    const size = table.length
+    const size = table?.columns?.length || 5
 
     const handlerVisible = (headers) => {
         let checkedCount = headers.reduce((prev, curr) => (curr.checked) ? prev + 1 : prev, 0)

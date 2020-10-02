@@ -25,7 +25,7 @@ export default ({ table, setTable }) => {
                             <FontAwesomeIcon icon={faCheck} />
                         </div>
                     </div>
-                    {table[0].data.map((cell, iter) =>
+                    {table[0].columns.map((cell, iter) =>
                         <TableHeader
                             key={iter + 1}
                             iter={iter + 2}

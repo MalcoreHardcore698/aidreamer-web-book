@@ -6,6 +6,7 @@ import Modal from '../ui/Modal'
 
 const act = {
     act: {
+        id: 0,
         title: 'Act I',
         tasks: [
             {
@@ -35,11 +36,15 @@ const act = {
     },
     tasks: [
         {
-            id: 0,
+            task: {
+                id: 0
+            },
             status: 'COMPLETED'
         },
         {
-            id: 1,
+            task: {
+                id: 1
+            },
             status: 'WAITING'
         }
     ]

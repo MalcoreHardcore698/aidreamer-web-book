@@ -2,6 +2,7 @@ import React from 'react'
 import Avatar from './Avatar'
 import SVGExpIcon from '../../assets/images/exp-icon.svg'
 import SVGGemIcon from '../../assets/images/gem-icon.svg'
+import '../styles/ActTask.css'
 
 function getAwardIcon(type) {
     if (type === 'EXP')
@@ -12,8 +13,8 @@ function getAwardIcon(type) {
 
 export default ({ task }) => {
     return (
-        <React.Fragment>
-            <Avatar avatar={{ path: item.icon.path }} />
+        <div className="ui-acttask">
+            <Avatar avatar={{ path: task.icon.path }} />
             <div className="text">
                 <p className="name">
                     <span>{task.title}</span>
@@ -25,6 +26,6 @@ export default ({ task }) => {
                 </p>
                 <p className="condition">{task.translation}</p>
             </div>
-        </React.Fragment>
+        </div>
     )
 }

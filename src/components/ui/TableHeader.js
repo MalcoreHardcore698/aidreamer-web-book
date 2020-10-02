@@ -8,7 +8,7 @@ export default ({ cell, iter }) => {
             className={`header ${cell.type}`}
             style={{ gridColumn: `${iter} / ${iter + 1}` }}
         >
-            {cell.header}
+            {cell.field}
         </div>
     )
 }

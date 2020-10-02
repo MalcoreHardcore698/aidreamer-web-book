@@ -3,7 +3,10 @@
     --br-main: 8px;
     --bs-main: 0px 0px 2px rgba(97, 63, 161, 0.06);
     --border-main: 1px solid #EDEFF4;
+    --line-height: 1.25;
     --height-main: 40px;
+    --w-aside: 340px;
+    --grid-gap: 20px;
 
     --font-weight-section-title: bold;
     --padding-content: 15px;
@@ -40,10 +43,12 @@
     --fz-headline: 22px;
 
     /* Z Index */
+    --z-override: 99999;
     --z-one-hundred-one: 101;
     --z-one-hundred: 100;
     --z-ninetynine: 99;
     --z-twenty: 20;
+    --z-eleven: 11;
     --z-ten: 10;
     --z-nine: 9;
     --z-primary: 1;

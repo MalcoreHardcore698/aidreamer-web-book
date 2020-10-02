@@ -13,6 +13,7 @@ import TableBody from './TableBody'
 import TablePagination from './TablePagination'
 import Message from './Message'
 import { getPage, getMaxPage } from '../../utils/functions'
+import { v4 } from 'uuid'
 import '../styles/Table.css'
 
 const limitDefault = 10
@@ -20,9 +21,8 @@ const limitList = [5, 10, 15, 20, 30, 40, 50]
 
 export default ({
     type='default',
-    component=null,
     data=null,
-    columns=[],
+    component=null,
     showModal=null,
     classNames=''
 }) => {
@@ -41,46 +41,43 @@ export default ({
     })))
 
     const max = useMemo(() =>
-        getMaxPage(columns, limits?.find(l => l.checked)?.value || limitDefault)
-    , [columns, limits])
+        getMaxPage(
+            data, limits?.find(l => l.checked)?.value || limitDefault
+        )
+    , [data, limits])
 
     useEffect(() => {
         const limit = limits?.find(l => l.checked)?.value || limitDefault
-        const content = getPage(columns, limit, page)
+        const content = getPage(data, limit, page)
 
-        setTable(content.map((trace, i) => ({
-            ...data[i],
-            _id: data[i].id,
-            id: i,
-            data: trace.map((cell, j) => ({
-                id: `cell-${i}-${j}`,
-                header: cell.header,
-                value: cell.value,
-                type: cell.type,
-                sortabled: cell.hasOwnProperty('sortabled')
-                    ? cell.sortabled
-                    : false,
-                visible: cell.hasOwnProperty('visible')
-                    ? cell.visible 
-                    : true
+        setTable(content.map(trace => ({
+            id: v4(),
+            document: trace,
+            columns: Object.entries(trace).map(([field, value]) => ({
+                field, value,
+                type: 'text',
+                sortabled: (field === 'sortabled') ? value : false,
+                visible: (field === 'visible') ? value : true
             })),
-            checked: false
+            checked: (trace?.checked || false)
         })))
-    }, [data, columns, limits, page])
+    }, [data, limits, page])
 
+    /*
     useEffect(() => {
         const checked = (table || []).filter(t => t.checked)
         if (checked.length > 0) setDisabled(false)
         else setDisabled(true)
 
-        if (table) {
-            setHeaders(table[0]?.data.map((tr, i) => ({
+        if (table.columns) {
+            setHeaders(table[0]?.columns.map((tr, i) => ({
                 id: i,
                 title: tr.header,
                 checked: tr.visible
             })))
         }
     }, [table])
+    */
 
     if (!data)
         return <Message text="Invalid passed props" padding />
@@ -107,11 +104,10 @@ export default ({
             <TablePagination max={max} page={page} setPage={setPage} />
 
             <div className={`table ${type}`}>
-                {(type !== 'default') && <TableHeaders table={table} setTable={setTable} />}
+                {(type === 'default') && <TableHeaders table={table} setTable={setTable} />}
 
-                {(table.length === 0)
-                    ? <Message text="Данные отсутсвуют" padding />
-                    : <TableBody table={table} setTable={setTable} />}
+                {(table.length > 0) ? <TableBody table={table} setTable={setTable} />
+                    : <Message text="Данные отсутсвуют" padding />}
             </div>
 
             <TablePagination max={max} page={page} setPage={setPage} />

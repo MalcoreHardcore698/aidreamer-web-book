@@ -11,6 +11,8 @@ export default ({ trace, setTable }) => {
         }) : ({ ...t })))
     }
 
+    if (!trace) return null
+
     return (
         <div className={`trace${(trace?.checked) ? ' checked' : ''}`} onClick={handlerChecked}>
             <div className="checkmark">
@@ -19,7 +21,7 @@ export default ({ trace, setTable }) => {
                 </div>
             </div>
 
-            {(trace?.data || []).map((cell, iter) =>
+            {(trace?.columns || []).map((cell, iter) =>
                 <TableCell key={iter} cell={cell} iter={iter + 2} />
             )}
         </div>

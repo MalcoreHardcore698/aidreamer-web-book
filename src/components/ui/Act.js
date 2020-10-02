@@ -5,13 +5,7 @@ import List from './List'
 import Message from './Message'
 import '../styles/Act.css'
 
-export default ({ options }) => {
-    const {
-        type,
-        act,
-        onChange
-    } = options || {}
-
+export default ({ type, act, onChange }) => {
     const classes = [
         'ui-act',
         type

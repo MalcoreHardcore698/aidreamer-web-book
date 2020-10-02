@@ -20,72 +20,6 @@ const data = [
     }
 ]
 
-const columns = data.map(document => ([
-    {
-        header: 'ID',
-        value: document.id,
-        type: 'text',
-        visible: false
-    },
-    {
-        header: 'Изображение',
-        value: document.preview.path,
-        type: 'img',
-        visible: false
-    },
-    {
-        header: 'Заголовок',
-        value: document.title,
-        type: 'text'
-    },
-    {
-        header: 'Подзаголовок',
-        value: document.subtitle,
-        type: 'text',
-        visible: false
-    },
-    {
-        header: 'Описание',
-        value: document.description,
-        type: 'text',
-        visible: false
-    },
-    {
-        header: 'Содержимое',
-        value: document.content,
-        type: 'text'
-    },
-    {
-        header: 'Комментарии',
-        value: document.comments.length,
-        type: 'text'
-    },
-    {
-        header: 'Сообщество',
-        value: document.hub.title,
-        type: 'text'
-    },
-    {
-        header: 'Статус',
-        value: document.status,
-        type: 'text'
-    },
-    {
-        header: 'Дата изменения',
-        value: {
-            date: document.updatedAt,
-            format: 'DD.MM.YYYY'
-        }
-    },
-    {
-        header: 'Дата создания',
-        value: {
-            date: document.createdAt,
-            format: 'DD.MM.YYYY'
-        }
-    }
-]))
-
 export default () => {
     const [state, setModal] = useState()
     
@@ -97,6 +31,7 @@ export default () => {
             <h1 className="book-title">Table</h1>
 
             <Table
+                data={data}
                 component={{
                     render: FormPost,
                     fields: {
@@ -109,8 +44,6 @@ export default () => {
                         isStatus: true
                     }
                 }}
-                data={data}
-                columns={columns}
                 showModal={showModal}
             />
 

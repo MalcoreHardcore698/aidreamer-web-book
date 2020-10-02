@@ -1,0 +1,36 @@
+.ui-acttask {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+    color: var(--color-graydark);
+    padding: 10px;
+    font-weight: 600;
+}
+
+.ui-acttask .text .name {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+    font-weight: 700;
+    color: var(--color-graydark);
+}
+
+.ui-acttask .text .name span.award {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-graylite);
+}
+
+.ui-acttask .text .name span.award img {
+    width: 10px;
+    height: 10px;
+}
+
+.ui-acttask .condition {
+    color: var(--color-graylite);
+    font-weight: 500;
+}

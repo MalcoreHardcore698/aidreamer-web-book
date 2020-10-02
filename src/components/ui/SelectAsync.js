@@ -2,6 +2,7 @@ import React from 'react'
 import Query from './Message'
 import Subscription from './Subscription'
 import Select from './Select'
+import { getFormattedData } from '../../utils/functions'
 
 const Container = (data, options) => (
     <Select options={{
